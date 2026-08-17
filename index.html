@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maya Stuttard — Interaction Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1a1916;
+    --ink-2: #5a584f;
+    --ink-3: #9e9b90;
+    --paper: #f7f5f0;
+    --paper-2: #eeeae2;
+    --accent: #2d5be3;
+    --accent-pale: #e8edfb;
+    --rule: #dedad2;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --max: 1100px;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; background: var(--paper); border-bottom: 1px solid var(--rule); z-index: 100; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-name { font-family: var(--serif); font-size: 18px; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 14px; color: var(--ink-2); text-decoration: none; transition: color .15s; }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* HERO */
+  .hero { padding: 140px 2rem 100px; max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 320px; gap: 5rem; align-items: end; }
+  .hero-eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 1.25rem; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(40px, 5.5vw, 68px); line-height: 1.06; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-body { font-size: 17px; color: var(--ink-2); line-height: 1.75; max-width: 520px; margin-bottom: 2rem; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: var(--paper); text-decoration: none; padding: 12px 24px; font-size: 14px; font-weight: 500; transition: background .15s; }
+  .hero-cta:hover { background: #333; }
+  .hero-stats { display: flex; flex-direction: column; gap: 1.75rem; border-left: 1px solid var(--rule); padding-left: 2.5rem; }
+  .stat-num { font-family: var(--serif); font-size: 44px; line-height: 1; color: var(--ink); letter-spacing: -0.02em; }
+  .stat-label { font-size: 13px; color: var(--ink-3); margin-top: 4px; line-height: 1.5; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--rule); }
+
+  /* SECTIONS */
+  .section { max-width: var(--max); margin: 0 auto; padding: 80px 2rem; }
+  .section-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 3rem; display: flex; align-items: center; gap: 12px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  /* WORK */
+  .work-grid { display: grid; gap: 2px; }
+  .work-card { background: var(--paper-2); padding: 2.5rem; display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; text-decoration: none; color: inherit; transition: background .15s; position: relative; cursor: pointer; }
+  .work-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: transparent; transition: background .15s; }
+  .work-card:hover { background: #e8e4db; }
+  .work-card:hover::before { background: var(--accent); }
+  .work-card.featured { background: var(--ink); color: var(--paper); grid-template-columns: 1fr 180px; }
+  .work-card.featured:hover { background: #242420; }
+  .work-card.featured::before { background: var(--accent); }
+  .work-card.featured .work-meta, .work-card.featured .work-num { color: #6b6960; }
+  .work-num { font-family: var(--serif); font-size: 13px; color: var(--ink-3); margin-bottom: .5rem; }
+  .work-title { font-family: var(--serif); font-size: clamp(22px, 2.8vw, 30px); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: .75rem; }
+  .work-desc { font-size: 15px; color: var(--ink-2); line-height: 1.65; max-width: 580px; margin-bottom: 1.25rem; }
+  .work-card.featured .work-desc { color: #b8b5aa; }
+  .work-meta { font-size: 13px; color: var(--ink-3); }
+  .work-tags { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; padding-top: 4px; }
+  .work-tag { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); padding: 4px 10px; border: 1px solid var(--rule); }
+  .work-card.featured .work-tag { border-color: #3a3832; color: #6b6960; }
+  .work-arrow { font-size: 20px; color: var(--accent); align-self: end; margin-top: 1rem; display: block; }
+
+  /* CASE STUDY DRAWER */
+  .drawer { display: none; background: var(--paper); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .drawer.open { display: block; }
+  .drawer-inner { max-width: var(--max); margin: 0 auto; padding: 3rem 2rem 4rem; display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; align-items: start; }
+  .drawer-close { float: right; background: none; border: 1px solid var(--rule); padding: 6px 14px; font-size: 13px; cursor: pointer; color: var(--ink-2); font-family: var(--sans); margin-bottom: 1.5rem; }
+  .drawer-close:hover { background: var(--paper-2); }
+  .cs-heading { font-family: var(--serif); font-size: clamp(26px, 3vw, 36px); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 1rem; }
+  .cs-intro { font-size: 16px; color: var(--ink-2); line-height: 1.75; margin-bottom: 2rem; }
+  .cs-h2 { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin: 2rem 0 .75rem; }
+  .cs-body { font-size: 15px; color: var(--ink-2); line-height: 1.75; margin-bottom: 1rem; }
+  .cs-body strong { color: var(--ink); font-weight: 500; }
+  .cs-callout { border-left: 3px solid var(--accent); padding: .75rem 1.25rem; margin: 1.5rem 0; background: var(--accent-pale); font-size: 15px; color: var(--ink-2); line-height: 1.65; font-style: italic; }
+  .cs-sidebar { position: sticky; top: 80px; }
+  .cs-meta-block { margin-bottom: 2rem; }
+  .cs-meta-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: .4rem; }
+  .cs-meta-val { font-size: 14px; color: var(--ink); line-height: 1.6; }
+  .cs-stat { margin-bottom: 1.5rem; }
+  .cs-stat-num { font-family: var(--serif); font-size: 36px; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
+  .cs-stat-label { font-size: 13px; color: var(--ink-3); margin-top: 3px; }
+  .cs-divider { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+  .cs-steps { list-style: none; counter-reset: steps; }
+  .cs-steps li { counter-increment: steps; display: flex; gap: 12px; margin-bottom: .75rem; font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+  .cs-steps li::before { content: counter(steps); font-family: var(--serif); font-size: 18px; color: var(--ink-3); min-width: 22px; }
+  .research-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 1rem 0 1.5rem; }
+  .research-table th { text-align: left; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding: 0 12px 8px 0; border-bottom: 1px solid var(--rule); font-weight: 400; }
+  .research-table td { padding: 8px 12px 8px 0; border-bottom: 1px solid var(--rule); color: var(--ink-2); vertical-align: top; }
+  .research-table tr:last-child td { border: none; }
+
+  /* PRAISE */
+  .praise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2px; }
+  .praise-card { background: var(--paper-2); padding: 2rem; }
+  .praise-quote { font-size: 15px; color: var(--ink-2); line-height: 1.75; margin-bottom: 1.25rem; font-style: italic; }
+  .praise-attr { font-size: 13px; color: var(--ink-3); font-style: normal; }
+  .praise-attr strong { color: var(--ink-2); font-weight: 500; }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .about-heading { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 42px); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+  .about-body { font-size: 16px; color: var(--ink-2); line-height: 1.8; margin-bottom: 1rem; }
+  .skills-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 1.5rem; }
+  .skills-list li { font-size: 14px; color: var(--ink-2); padding: 10px 0; border-bottom: 1px solid var(--rule); display: flex; align-items: center; gap: 8px; }
+  .skills-list li::before { content: ''; width: 4px; height: 4px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .timeline-item { display: grid; grid-template-columns: 90px 1fr; gap: 1.25rem; padding-bottom: 1.75rem; position: relative; }
+  .timeline-item::before { content: ''; position: absolute; left: 83px; top: 6px; bottom: 0; width: 1px; background: var(--rule); }
+  .timeline-item:last-child::before { display: none; }
+  .timeline-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); position: absolute; left: 80px; top: 6px; }
+  .timeline-year { font-size: 12px; color: var(--ink-3); padding-top: 2px; text-align: right; }
+  .timeline-content { padding-left: 1rem; }
+  .timeline-title { font-size: 15px; font-weight: 500; margin-bottom: 2px; }
+  .timeline-sub { font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+
+  /* CONTACT */
+  .contact-section { background: var(--ink); color: var(--paper); padding: 80px 2rem; }
+  .contact-inner { max-width: var(--max); margin: 0 auto; display: flex; justify-space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
+  .contact-heading { font-family: var(--serif); font-size: clamp(32px, 4.5vw, 54px); line-height: 1.08; letter-spacing: -0.02em; max-width: 520px; }
+  .contact-heading em { font-style: italic; color: #8fa8f5; }
+  .contact-links { display: flex; flex-direction: column; gap: 14px; align-items: flex-end; }
+  .contact-link { font-size: 14px; color: #9e9b90; text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color .15s; }
+  .contact-link:hover { color: var(--paper); }
+  footer { background: var(--ink); border-top: 1px solid #2a2a25; padding: 1.25rem 2rem; }
+  footer p { font-size: 13px; color: #5a584f; max-width: var(--max); margin: 0 auto; display: flex; justify-content: space-between; }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 100px 1.25rem 60px; }
+    .hero-stats { flex-direction: row; flex-wrap: wrap; border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 1.5rem; gap: 1.25rem 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .drawer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .work-card { grid-template-columns: 1fr; }
+    .work-card.featured { grid-template-columns: 1fr; }
+    .work-tags { flex-direction: row; align-items: flex-start; flex-wrap: wrap; margin-top: .5rem; }
+    .contact-inner { flex-direction: column; align-items: flex-start; }
+    .contact-links { align-items: flex-start; }
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1.25rem; }
+    .section { padding: 60px 1.25rem; }
+    .cs-sidebar { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Maya Stuttard</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <p class="hero-eyebrow">Interaction Designer · London · Digital Consultancy</p>
+    <h1>Designing systems that <em>work</em> for the people who need them most</h1>
+    <p class="hero-body">I'm an interaction designer embedded in a national public sector health programme — designing at scale, one pattern, millions of patients, hundreds of healthcare providers. I care about the edges: designing for people with the highest barriers to access makes everything better for everyone.</p>
+    <a href="#work" class="hero-cta">View my work ↓</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">100+</div>
+      <div class="stat-label">Research participants across 5+ study rounds</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Features shipped or in delivery across the programme</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Regional health trusts reached by design standards I've contributed to</div>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<!-- WORK -->
+<section class="section" id="work">
+  <p class="section-label">Selected work</p>
+  <div class="work-grid">
+
+    <!-- 01 National Health Standard -->
+    <div class="work-card featured" onclick="toggleDrawer('d1', this)">
+      <div>
+        <p class="work-num">01</p>
+        <h2 class="work-title">Appointment & Referral Management — Patient Readiness Standard</h2>
+        <p class="work-desc">Designing a national standard for how patients understand and manage their healthcare appointments. Across hundreds of regional trusts, multiple software vendors, and legacy systems — the patient sees one coherent experience.</p>
+        <p class="work-meta">Interaction Designer · Public Sector Health Practice · 2025–present</p>
+        <span class="work-arrow">↓ Read case study</span>
+      </div>
+      <div class="work-tags">
+        <span class="work-tag">End-to-end</span>
+        <span class="work-tag">Research</span>
+        <span class="work-tag">Governance</span>
+        <span class="work-tag">Shipped</span>
+      </div>
+    </div>
+    <div class="drawer" id="d1">
+      <div class="drawer-inner">
+        <div>
+          <button class="drawer-close" onclick="toggleDrawer('d1')">✕ Close</button>
+          <h2 class="cs-heading">Patient Readiness — Appointment & Referral Management</h2>
+          <p class="cs-intro">Patients were attending appointments despite existing digital notifications, not because of them. Most prepared out of anxiety due to unclear information. This project was about fixing the basics: designing one national standard that works for all patients, across all regional providers, regardless of what software sits underneath.</p>
+
+          <p class="cs-h2">The problem</p>
+          <p class="cs-body">A patient gets a notification: "virtual appointment booked." They don't know if that means video or telephone. They don't know whether to travel. So they prepare for both, just in case. The challenge wasn't building a single feature. It was designing one standard flexible enough to work across hundreds of regional providers running different software generations — without exposing technical complexity to the patient.</p>
+          <div class="cs-callout">"Research showed users were over-preparing out of uncertainty rather than relying on digital prompts — we needed to make appointment types completely unambiguous."</div>
+
+          <p class="cs-h2">Research — 5 rounds, 100+ participants</p>
+          <table class="research-table">
+            <tr><th>Round</th><th>Method</th><th>Participants</th><th>Focus</th></tr>
+            <tr><td>1</td><td>Survey</td><td>13</td><td>Baseline readiness barriers — community accessibility groups</td></tr>
+            <tr><td>2</td><td>Co-design</td><td>12</td><td>What reassurance do patients need, and in what form?</td></tr>
+            <tr><td>3</td><td>Moderated usability</td><td>8</td><td>Two prototype variants across three consultation mediums</td></tr>
+            <tr><td>4</td><td>Unmoderated (A/B)</td><td>34</td><td>Confirm attendance, video joining, clinician name placement</td></tr>
+            <tr><td>5</td><td>Validation</td><td>34</td><td>Final design validation</td></tr>
+          </table>
+          <p class="cs-body">Every round included participants with low digital confidence, visual impairments, and mental health conditions. The same core finding surfaced every time: patients lacked confidence in notifications and compensated with stressful personal workarounds.</p>
+
+          <p class="cs-h2">What I designed</p>
+          <p class="cs-body"><strong>Consultation Medium</strong> — A clear, consistent label for how every appointment takes place: in person, telephone, or video. Each type required its own variant with different information hierarchy. A telephone appointment explicitly clarifies that no travel is required. A video appointment surfaces a joining link, setup guidance, and fallback instructions.</p>
+          <p class="cs-body"><strong>Confirm Attendance</strong> — Patients confirm they can attend, with three design variants depending on underlying provider system capabilities. Designed to reduce missed appointments while accounting for vastly different tech stacks.</p>
+          <p class="cs-body"><strong>Video joining</strong> — Three distinct states: link opens in-app, in browser, or is unavailable, each with fallback guidance and no dead ends.</p>
+
+          <p class="cs-h2">Governance & clinical safety</p>
+          <p class="cs-body">I led the UCD deliverables through formal Design Assurance processes and clinical safety sign-off. This involved scoping hazard workshops, coordinating cross-functional inputs, and presenting directly to governance boards from submission to formal sign-off, enabling rollout across connected providers.</p>
+
+          <p class="cs-h2">Reflection</p>
+          <p class="cs-body">Designing at scale means designing for constraints you'll never fully see. The most impactful decisions weren't the most visually dramatic — where to surface clinic location context, or how to phrase a telephone appointment confirmation, mattered far more to patient confidence than complex visual layouts.</p>
+        </div>
+        <div class="cs-sidebar">
+          <div class="cs-meta-block">
+            <p class="cs-meta-label">Role</p>
+            <p class="cs-meta-val">Interaction Designer</p>
+          </div>
+          <div class="cs-meta-block">
+            <p class="cs-meta-label">Organisation</p>
+            <p class="cs-meta-val">Embedded in a national public sector health programme</p>
+          </div>
+          <div class="cs-meta-block">
+            <p class="cs-meta-label">Duration</p>
+            <p class="cs-meta-val">2025 – present</p>
+          </div>
+          <div class="cs-meta-block">
+            <p class="cs-meta-label">Status</p>
+            <p class="cs-meta-val">Shipped · live rollout</p>
+          </div>
+          <hr class="cs-divider">
+          <div class="cs-stat"><div class="cs-stat-num">100+</div><div class="cs-stat-label">Research participants across 5 rounds</div></div>
+          <div class="cs-stat"><div class="cs-stat-num">4+</div><div class="cs-stat-label">Features through clinical safety sign-off</div></div>
+          <div class="cs-stat"><div class="cs-stat-num">500+</div><div class="cs-stat-label">Regional trusts reached by the design standard</div></div>
+          <hr class="cs-divider">
+          <p class="cs-meta-label">Screens omitted — client confidentiality</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 Mental Health -->
+    <div class="work-card" onclick="toggleDrawer('d2', this)">
+      <div>
+        <p class="work-num">02</p>
+        <h2 class="work-title">Questionnaires & Documents — Mental Health Settings</h2>
+        <p class="work-desc">Adapting clinical questionnaire and document viewing experiences for mental health secondary care — designing for high cognitive load, emotional vulnerability, and clinical safeguarding requirements.</p>
+        <p class="work-meta">Interaction Designer · 2025–2026 · Mental health secondary care</p>
+        <span class="work-arrow">↓ Read case study</span>
+      </div>
+      <div class="work-tags">
+        <span class="work-tag">Inclusive design</span>
+        <span class="work-tag">Sensitive UX</span>
+        <span class="work-tag">Shipped</span>
+      </div>
+    </div>
+    <div class="drawer" id="d2">
+      <div class="drawer-inner">
+        <div>
+          <button class="drawer-close" onclick="toggleDrawer('d2')">✕ Close</button>
+          <h2 class="cs-heading">Questionnaires & Documents — Mental Health Settings</h2>
+          <p class="cs-intro">Standard portal designs weren't built for specialized mental health settings — where patients may be in distress, where cognitive load is elevated, and where rigid design patterns can trigger unnecessary anxiety. This project adapted and uplifted these experiences for specialized healthcare providers nationwide.</p>
+
+          <p class="cs-h2">The problem</p>
+          <p class="cs-body">Standard design patterns that work for routine care — mandatory question completion, 'To Do' badges, or bright visual urgency tags — caused anxiety in mental health service users. Standard questionnaire steps forced patients to answer linearly, breaking existing non-digital patient habits and leading to task abandonment.</p>
+          <div class="cs-callout">User research revealed that 8 out of 9 participants needed to navigate back and forth between questions to revisit answers as their emotional state evolved. Linear form validation prevented this.</div>
+
+          <p class="cs-h2">Research — 69+ participants across 3 methods</p>
+          <p class="cs-body">Research included unmoderated sessions testing content formats, 1:1 usability testing with mental health service users (including participants with neurodivergence or sensory impairments), and quantitative validation rounds.</p>
+
+          <p class="cs-h2">Key design decisions</p>
+          <p class="cs-body"><strong>Flexible Navigation Flow</strong> — Introduced functional pattern changes allowing patients to view and navigate questions out of strict order without loss of progress, directly informed by clinical and accessibility evidence.</p>
+          <p class="cs-body"><strong>Contextual Guidance Screens</strong> — Added clear 'what to expect' content before tasks start. Added optional content warnings for sensitive topics, reducing unexpected emotional friction.</p>
+          <p class="cs-body"><strong>Cognitive Load Reduction</strong> — Updated task language to neutral tone (e.g., changing action-heavy imperative verbs to supportive guidance). Hidden completed tasks by default to keep current view focused.</p>
+          <p class="cs-body"><strong>Save & Pause Options</strong> — Explicitly surfaced progress saving across all steps, reassuring users they could complete forms in multiple sessions.</p>
+
+          <p class="cs-h2">Outcome</p>
+          <p class="cs-body">Designs passed formal clinical safety reviews and UCD governance, expanding into active deployment across regional mental health providers.</p>
+        </div>
+        <div class="cs-sidebar">
+          <div class="cs-meta-block"><p class="cs-meta-label">Role</p><p class="cs-meta-val">Interaction Designer</p></div>
+          <div class="cs-meta-block"><p class="cs-meta-label">Status</p><p class="cs-meta-val">Shipped · live across regional healthcare providers</p></div>
+          <div class="cs-meta-block"><p class="cs-meta-label">Research</p><p class="cs-meta-val">69+ participants · 3 research methods</p></div>
+          <hr class="cs-divider">
+          <div class="cs-stat"><div class="cs-stat-num">8/9</div><div class="cs-stat-label">Participants needed non-linear step navigation</div></div>
+          <hr class="cs-divider">
+          <p class="cs-meta-label">Screens omitted — client confidentiality</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 Reschedule -->
+    <div class="work-card" onclick="toggleDrawer('d3', this)">
+      <div>
+        <p class="work-num">03</p>
+        <h2 class="work-title">Rescheduling Uplift — Asynchronous Journeys</h2>
+        <p class="work-desc">When backend systems cannot expose real-time booking slots, users experience dead ends. Designing three adaptable rescheduling journeys that accommodate varied technical backends without confusing the user.</p>
+        <p class="work-meta">Interaction Designer · 2025–2026 · Secondary healthcare</p>
+        <span class="work-arrow">↓ Read case study</span>
+      </div>
+      <div class="work-tags">
+        <span class="work-tag">Constraints</span>
+        <span class="work-tag">Inclusive Design</span>
+        <span class="work-tag">Shipped</span>
+      </div>
+    </div>
+    <div class="drawer" id="d3">
+      <div class="drawer-inner">
+        <div>
+          <button class="drawer-close" onclick="toggleDrawer('d3')">✕ Close</button>
+          <h2 class="cs-heading">Rescheduling — Designing Around System Constraints</h2>
+          <p class="cs-intro">Not all regional providers can stream real-time calendar availability to a central application. Historically, this meant patients attempting to reschedule hit dead ends, causing high contact center volumes and missed appointments. The goal was to design an inclusive experience that adapts across varying provider tech capabilities.</p>
+
+          <p class="cs-h2">Research & Key Findings</p>
+          <div class="cs-callout">Testing showed interactive calendar views implied immediate live booking to users. When visual cues suggested immediate confirmation but the backend required manual processing, trust dropped. We replaced interactive calendar grids with clear preference-selection steps.</div>
+
+          <p class="cs-h2">Key Decisions</p>
+          <p class="cs-body"><strong>Three Configurable Journeys</strong> — Live slot selection, preference selection (time/day availability choices), and request-based routing for complex care plans requiring prior clinical triage.</p>
+          <p class="cs-body"><strong>Single-Screen Selection</strong> — Reduced multi-step preference forms into consolidated accessible layouts with conditional fields, tested thoroughly with screen reader users.</p>
+          <p class="cs-body"><strong>Outcome Framing</strong> — Reordered confirmation screens to show request status, next steps, and realistic response timeframes upfront.</p>
+
+          <p class="cs-h2">Outcome</p>
+          <p class="cs-body">All three journey variations passed program governance, reducing dead ends for non-integrated providers while maintaining clear patient expectations.</p>
+        </div>
+        <div class="cs-sidebar">
+          <div class="cs-meta-block"><p class="cs-meta-label">Role</p><p class="cs-meta-val">Interaction Designer</p></div>
+          <div class="cs-meta-block"><p class="cs-meta-label">Status</p><p class="cs-meta-val">Shipped · governance complete</p></div>
+          <div class="cs-meta-block"><p class="cs-meta-label">Participants</p><p class="cs-meta-val">25 across 4 research rounds</p></div>
+          <hr class="cs-divider">
+          <div class="cs-stat"><div class="cs-stat-num">3</div><div class="cs-stat-label">Configurable journey patterns for regional provider support</div></div>
+          <hr class="cs-divider">
+          <p class="cs-meta-label">Screens omitted — client confidentiality</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 Patient-Led Booking -->
+    <div class="work-card" onclick="toggleDrawer('d4', this)">
+      <div>
+        <p class="work-num">04</p>
+        <h2 class="work-title">Patient-Led Booking Standard</h2>
+        <p class="work-desc">Designing interaction standards for patient-initiated slot selection. Translating invitation models into consistent digital interaction patterns across public health platforms.</p>
+        <p class="work-meta">Interaction Designer · 2026 · Secondary healthcare</p>
+        <span class="work-arrow">↓ Read case study</span>
+      </div>
+      <div class="work-tags">
+        <span class="work-tag">Feature owner</span>
+        <span class="work-tag">End-to-end</span>
+        <span class="work-tag">Design System</span>
+      </div>
+    </div>
+    <div class="drawer" id="d4">
+      <div class="drawer-inner">
+        <div>
+          <button class="drawer-close" onclick="toggleDrawer('d4')">✕ Close</button>
+          <h2 class="cs-heading">Patient-Led Booking — Interaction Standards</h2>
+          <p class="cs-intro">In specific clinical pathways, booking responsibilities sit with the patient upon receiving an invitation rather than through automatic appointment assignment. This project establishes consistent interaction models for self-directed booking across public digital channels.</p>
+
+          <p class="cs-h2">Scope & Design Focus</p>
+          <p class="cs-body">My UCD responsibilities span from scoping user needs and interaction principles to delivering component guidelines and accessibility specs:</p>
+          <ol class="cs-steps">
+            <li>Differentiating invitation states visually and structurally from confirmed appointments</li>
+            <li>Designing intuitive calendar and slot selection patterns for web and mobile contexts</li>
+            <li>Structuring real-time booking confirmation states and error recovery pathways</li>
+            <li>Defining technical specifications and interaction requirements for integration teams</li>
+          </ol>
+
+          <p class="cs-h2">Value</p>
+          <p class="cs-body">Establishing clear interaction patterns ensures consistency across varied technical providers while maintaining accessibility and clarity for end users.</p>
+        </div>
+        <div class="cs-sidebar">
+          <div class="cs-meta-block"><p class="cs-meta-label">Role</p><p class="cs-meta-val">Interaction Designer</p></div>
+          <div class="cs-meta-block"><p class="cs-meta-label">Status</p><p class="cs-meta-val">Design & Research Iteration</p></div>
+          <div class="cs-meta-block"><p class="cs-meta-label">Scope</p><p class="cs-meta-val">Discovery → Interaction Specs</p></div>
+          <hr class="cs-divider">
+          <p class="cs-meta-label">Screens omitted — client confidentiality</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 Dissertation -->
+    <div class="work-card" onclick="toggleDrawer('d5', this)">
+      <div>
+        <p class="work-num">05</p>
+        <h2 class="work-title">HCI Dissertation — Computer Science</h2>
+        <p class="work-desc">Academic research in Human-Computer Interaction, undertaken as part of a Computer Science degree. Research methodology, accessibility evaluation, and evidence-based design decisions.</p>
+        <p class="work-meta">BSc Computer Science with Year in Industry</p>
+        <span class="work-arrow">↓ Read more</span>
+      </div>
+      <div class="work-tags">
+        <span class="work-tag">Research</span>
+        <span class="work-tag">HCI</span>
+        <span class="work-tag">Academic</span>
+      </div>
+    </div>
+    <div class="drawer" id="d5">
+      <div class="drawer-inner">
+        <div>
+          <button class="drawer-close" onclick="toggleDrawer('d5')">✕ Close</button>
+          <h2 class="cs-heading">HCI Dissertation</h2>
+          <p class="cs-intro">My final year dissertation focused on human-computer interaction principles and user accessibility methods. This research background forms the foundation for the evidence-based design methods I apply on public sector digital services.</p>
+          <p class="cs-body">The project involved defining research questions, gathering empirical participant data, conducting usability evaluations, and translating analytical findings into functional UI recommendations.</p>
+        </div>
+        <div class="cs-sidebar">
+          <div class="cs-meta-block"><p class="cs-meta-label">Degree</p><p class="cs-meta-val">BSc Computer Science with Year in Industry</p></div>
+          <div class="cs-meta-block"><p class="cs-meta-label">Focus</p><p class="cs-meta-val">Human-Computer Interaction (HCI) & User Research Methods</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<hr class="divider">
+
+<!-- PRAISE -->
+<section class="section" id="praise">
+  <p class="section-label">Feedback & Recommendations</p>
+  <div class="praise-grid">
+    <div class="praise-card">
+      <p class="praise-quote">"Maya leads interaction design with great clarity — not just producing UI artifacts, but actively synthesizing complex service context into coherent, evidence-based design decisions."</p>
+      <p class="praise-attr"><strong>Design Practice Lead</strong> · Digital Consultancy</p>
+    </div>
+    <div class="praise-card">
+      <p class="praise-quote">"Maya led the design assurance and clinical sign-off processes for complex features in challenging constraints. She took ambiguous requirements and established a structured, confident UCD delivery route."</p>
+      <p class="praise-attr"><strong>User Research Lead</strong> · Public Sector Practice</p>
+    </div>
+    <div class="praise-card">
+      <p class="praise-quote">"Maya is an exceptionally capable designer. Her prototypes and design documentation are structured, clear, and seamlessly organized for cross-functional engineering teams."</p>
+      <p class="praise-attr"><strong>Senior Interaction Designer</strong> · Health Practice</p>
+    </div>
+    <div class="praise-card">
+      <p class="praise-quote">"Maya has earned total trust across stakeholders to deliver high-quality interaction design and independently lead core UCD work streams."</p>
+      <p class="praise-attr"><strong>Service Design Lead</strong> · Public Sector Programme</p>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <p class="section-label">About</p>
+  <div class="about-grid">
+    <div>
+      <h2 class="about-heading">I design for the edges, not just the happy path</h2>
+      <p class="about-body">I'm Maya, an interaction designer embedded in large-scale public sector healthcare initiatives. My work involves designing interaction patterns used by millions of citizens across regional health organizations — simplifying systemic complexity into clear user experiences.</p>
+      <p class="about-body">I studied Computer Science with a Year in Industry, specializing in Human-Computer Interaction. Over my work on public health services, I've delivered features through clinical governance, facilitated stakeholder alignment, and established standardized UCD patterns across complex service areas.</p>
+      <p class="about-body">I focus on inclusive design — ensuring digital products work effectively for people with lower digital confidence, cognitive accessibility needs, or situational barriers. Good design for the edges makes the experience better for everyone.</p>
+      <ul class="skills-list">
+        <li>Interaction design</li>
+        <li>Figma & prototyping</li>
+        <li>User research synthesis</li>
+        <li>GOV.UK design system</li>
+        <li>Service design</li>
+        <li>Accessibility (WCAG 2.2)</li>
+        <li>Design governance</li>
+        <li>Agile UCD delivery</li>
+        <li>Cross-functional alignment</li>
+        <li>Stakeholder management</li>
+      </ul>
+    </div>
+    <div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2026</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-title">Interaction Designer — Public Sector Healthcare</p>
+            <p class="timeline-sub">Leading UCD delivery across booking journeys, interaction standards, and service pattern updates.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2025</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-title">Interaction Designer — Digital Practice</p>
+            <p class="timeline-sub">Delivered patient readiness journeys, mental health interaction patterns, and asynchronous service flows through formal design governance.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-title">Graduated — BSc Computer Science with Year in Industry</p>
+            <p class="timeline-sub">Specialized in Human-Computer Interaction and user research methodologies.</p>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--ink-3);line-height:1.7;margin-top:1.5rem;font-style:italic">Work completed within public sector digital transformation programs. Case studies describe interaction design processes and design thinking. Screens and client details omitted in accordance with NDA guidelines.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <h2 class="contact-heading">Let's work on something that <em>matters</em></h2>
+    <div class="contact-links">
+      <a href="mailto:maya.stuttard@gmail.com" class="contact-link">maya.stuttard@gmail.com ↗</a>
+      <a href="https://linkedin.com/in/mayastuttard" class="contact-link">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <p><span style="color:#3a3832">Maya Stuttard</span><span>© 2026</span></p>
+</footer>
+
+<script>
+function toggleDrawer(id, card) {
+  const drawer = document.getElementById(id);
+  const isOpen = drawer.classList.contains('open');
+  document.querySelectorAll('.drawer').forEach(d => d.classList.remove('open'));
+  if (!isOpen) {
+    drawer.classList.add('open');
+    setTimeout(() => drawer.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+}
+</script>
+</body>
+</html>
+
+
