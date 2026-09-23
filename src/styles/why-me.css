@@ -1,0 +1,102 @@
+.why {
+  background: var(--paper-2);
+}
+.why-subhead {
+  margin-top: var(--space-xl);
+  font-size: var(--step-1);
+  font-style: italic;
+}
+
+.notes {
+  list-style: none;
+  display: grid;
+  gap: var(--space-l);
+  margin-top: var(--space-l);
+}
+@media (min-width: 40rem) {
+  .notes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-l) var(--space-xl);
+    padding-inline: var(--space-s);
+  }
+  .note:nth-child(even) {
+    margin-top: var(--space-l);
+  }
+}
+.note {
+  position: relative;
+  padding: var(--space-l) var(--space-m) var(--space-m);
+  background: var(--note);
+  border-radius: 2px;
+  box-shadow:
+    0 1px 1px rgba(23, 22, 26, 0.05),
+    0 12px 24px -16px rgba(23, 22, 26, 0.3);
+  max-width: 30rem;
+}
+.note-mark {
+  position: absolute;
+  top: -0.15em;
+  left: var(--space-m);
+  font-family: var(--font-display);
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--accent);
+}
+.note blockquote {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 350;
+  line-height: 1.4;
+}
+.note figcaption {
+  margin-top: var(--space-s);
+  font-size: 0.875rem;
+  color: var(--ink-3);
+}
+.note figcaption strong {
+  color: var(--ink-2);
+  font-weight: 500;
+}
+
+.faq {
+  list-style: none;
+  margin-top: var(--space-m);
+  max-width: 48rem;
+  border-top: 1px solid var(--rule);
+}
+.faq-item {
+  border-bottom: 1px solid var(--rule);
+}
+.faq-item h4 {
+  font: inherit;
+}
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-s);
+  padding-block: var(--space-m);
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  text-align: left;
+  cursor: pointer;
+}
+.faq-icon {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--accent-ink);
+}
+.faq-panel {
+  overflow: hidden;
+}
+.faq-panel p {
+  max-width: var(--measure);
+  padding-bottom: var(--space-m);
+  color: var(--ink-2);
+}

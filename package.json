@@ -1,10 +1,25 @@
 {
   "name": "stuttardmaya2020.github.io",
   "private": true,
+  "type": "module",
   "scripts": {
-    "watch": "live-server --open=index.html"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "framer-motion": "^13.4.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@vitejs/plugin-react": "^4.7.0",
+    "marked": "^18.0.14",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "yaml": "^2.9.1"
   }
 }

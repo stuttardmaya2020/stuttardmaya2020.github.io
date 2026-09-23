@@ -1,0 +1,38 @@
+.contact-heading {
+  margin-top: var(--space-s);
+  max-width: 14ch;
+  font-size: var(--step-4);
+  font-weight: 350;
+  letter-spacing: -0.03em;
+}
+.contact-sub {
+  margin-top: var(--space-m);
+  max-width: var(--measure);
+  color: var(--ink-2);
+}
+.contact-email {
+  position: relative;
+  display: inline-block;
+  margin-top: var(--space-l);
+  padding-bottom: 0.1em;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--rule);
+}
+.contact-email-rule {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--ink);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.contact-links {
+  display: flex;
+  gap: var(--space-l);
+  margin-top: var(--space-m);
+}
