@@ -44,6 +44,9 @@ export interface About {
   facts: string[];
   paintings: { src: string; alt: string; zoom?: number; focus?: string }[];
   paintingsCaption: string;
+  photosTitle: string;
+  photos: { src: string; alt: string; focus: string }[];
+  photosCaption: string;
 }
 
 export interface Work {

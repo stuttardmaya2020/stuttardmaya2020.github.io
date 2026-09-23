@@ -3,6 +3,7 @@ import { Scribble } from "../components/Scribble";
 import { Values } from "../components/Values";
 import { Timeline } from "../components/Timeline";
 import { Paintings } from "../components/Paintings";
+import { Photos } from "../components/Photos";
 import { about } from "../lib/content";
 import "../styles/about.css";
 
@@ -59,6 +60,7 @@ export function About() {
         </div>
 
         <Paintings />
+        <Photos />
       </div>
     </section>
   );

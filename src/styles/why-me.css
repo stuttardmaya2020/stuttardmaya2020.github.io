@@ -1,4 +1,5 @@
 .why {
+  overflow-x: clip; /* tilted notes can poke past the edge on small phones */
   background: var(--paper-2);
 }
 .why-subhead {

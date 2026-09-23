@@ -27,6 +27,7 @@ experience:
 factsTitle: Fun facts
 facts:
   - Obsessed with dogs. No further comment needed.
+  - Happiest outdoors. I hike, camp and travel whenever I get the chance, rain or shine.
   - Born and raised in Connecticut, USA, until I moved to London at 18 to study Computer Science at Royal Holloway. I now live in the UK full time (my parents are British, so I got a UK passport out of the deal too).
   - Grew up playing sports, dance and soccer mainly, and I'm still active most weeks. My mum is a personal trainer, so I've done everything from HIIT to Pilates with her; lately I've moved into weightlifting at the gym as a new challenge.
   - "I paint in my spare time, mostly small, detailed acrylic and oil landscapes. It's the same instinct as design: composition, color, and knowing when to stop."
@@ -51,6 +52,36 @@ paintings:
     zoom: 1.75
     focus: 44% 72%
 paintingsCaption: A few of mine. I paint mostly on small canvases, acrylic and oil.
+photosTitle: Out and about
+photos:
+  - src: photo-camping
+    focus: 62% 50%
+    alt: Maya taking a selfie in front of her tent on a campsite, with her car's boot open behind her.
+  - src: photo-hike-rain
+    focus: 78% 50%
+    alt: Maya on a wet stone path in the rain, with an orange cover on her backpack and a misty green valley behind her.
+  - src: photo-chalk-cliff
+    focus: 50% 45%
+    alt: A hiker with arms raised on top of a white chalk cliff above a turquoise sea.
+  - src: photo-coast
+    focus: 78% 50%
+    alt: Maya standing in long grass on a clifftop, with the sea and a seaside town in the distance.
+  - src: photo-hike-group
+    focus: 50% 72%
+    alt: Five hikers sitting and standing on a large rock outcrop above a green valley, under a blue sky.
+  - src: photo-wakeboard
+    focus: 62% 50%
+    alt: Maya in the sea with a wakeboard, waiting to start, near a rocky tree-covered shore.
+  - src: photo-hike-selfie
+    focus: 50% 50%
+    alt: Maya taking a selfie while resting in the heather on a sunny hike.
+  - src: photo-boat
+    focus: 50% 50%
+    alt: An aerial view of a white boat anchored in clear turquoise water beside a rocky coastline.
+  - src: photo-graduation
+    focus: 50% 85%
+    alt: Maya in her graduation gown and cap with three people, in front of a red-brick archway.
+photosCaption: Hikes, campsites, a few trips, and one graduation.
 ---
 
 I'm a product designer with a background in Computer Science, currently working as a senior interaction designer. I've always been drawn to STEM and engineering (I was even president of my high school's engineering club), but I was just as drawn to art, and took art classes all through school too. Product design turned out to be the place where both could actually live together: the structured, systems-thinking side of engineering, and the visual, expressive side of art.

@@ -171,3 +171,22 @@
   font-style: italic;
   color: var(--ink-3);
 }
+
+.photos {
+  margin-top: var(--space-xl);
+}
+.photos-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-xs);
+  max-width: 48rem;
+  margin-top: var(--space-m);
+}
+.photos-grid img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--paper-2);
+}
