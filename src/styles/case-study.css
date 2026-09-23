@@ -178,3 +178,32 @@
 .case-prose h2 + h3 {
   margin-top: var(--space-m);
 }
+
+.case-prose .case-figure {
+  margin-block: var(--space-l);
+}
+.case-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.case-figure-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-m);
+}
+.case-figure-row .label {
+  margin-bottom: var(--space-2xs);
+}
+.case-figure--phones .case-figure-row {
+  grid-template-columns: repeat(2, minmax(0, 13rem));
+  justify-content: start;
+}
+.case-figure figcaption {
+  margin-top: var(--space-xs);
+  font-size: 0.875rem;
+  color: var(--ink-3);
+}
