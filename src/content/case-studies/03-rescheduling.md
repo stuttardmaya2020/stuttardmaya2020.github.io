@@ -1,4 +1,6 @@
 ---
+wallMeta: Senior interaction designer · 2025–26
+wallLine: Three rescheduling journeys that never promise more than the system can do.
 order: 3
 cover: rescheduling
 tag: Constraints

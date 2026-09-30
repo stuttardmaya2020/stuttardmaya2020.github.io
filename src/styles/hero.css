@@ -1,108 +1,102 @@
 .hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  min-height: min(calc(100svh - var(--nav-h)), 56rem);
-  padding-block: var(--space-xl) var(--space-2xl);
+  display: grid;
+  gap: var(--space-l);
+  align-content: center;
+  min-height: min(calc(100svh - var(--nav-h)), 58rem);
+  padding-block: var(--space-l) var(--space-xl);
   scroll-margin-top: var(--nav-h);
 }
-.hero-art {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-}
-.hero-eyebrow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2xs) var(--space-m);
-  margin-bottom: var(--space-m);
-  color: var(--ink-2);
-}
-.hero-status {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-}
-.live-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--live);
-}
-.hero-title {
-  font-size: var(--step-4);
-  font-weight: 350;
-  line-height: 1.02;
-  letter-spacing: -0.03em;
-  max-width: 16ch;
-}
-.hl-rule {
-  background-image: linear-gradient(var(--ink), var(--ink));
-  background-repeat: no-repeat;
-  background-position: 0 92%;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-.hl-brush {
-  position: relative;
-  white-space: nowrap;
-  font-style: italic;
-}
-.hl-brush-mark {
-  position: absolute;
-  left: -2%;
-  bottom: -0.1em;
-  width: 104%;
-  height: 0.26em;
-  overflow: visible;
-  stroke-width: 2.6;
-}
-.hl-brush-mark path {
-  stroke-width: 2.6;
-}
-.hero-lede {
-  margin-top: var(--space-m);
-  max-width: 32rem;
-  font-size: var(--step-1);
-  line-height: 1.55;
-  color: var(--ink-2);
-}
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-s) var(--space-l);
-  margin-top: var(--space-l);
+@media (min-width: 60rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr) var(--label);
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: end;
+  }
 }
 
-.button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  min-height: 3.25rem;
-  padding-inline: 1.75rem;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--paper);
-  font-weight: 500;
-  text-decoration: none;
+.piece {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 72svh;
+  background: var(--mount);
 }
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-  min-height: 2.75rem;
+@media (min-width: 40rem) {
+  .piece {
+    aspect-ratio: 4 / 3;
+  }
+}
+.piece-canvas {
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: pan-y; /* vertical swipes still scroll the page */
+}
+
+.hero-name {
+  font-size: var(--step-3);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+.hero-role {
+  margin-top: var(--space-xs);
+  font-size: var(--step-1);
   font-weight: 500;
+  line-height: 1.25;
+}
+.hero-label .hero-work {
+  margin-top: var(--space-m);
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--rule);
+}
+.hero-hint {
+  font-size: var(--step-xs);
+  color: var(--ink-soft);
+}
+.hero-clear {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: var(--lilac-ink);
   text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 6px;
+  text-decoration-color: var(--lilac);
+  text-underline-offset: 0.2em;
+  cursor: pointer;
 }
-.button span,
-.text-link span {
-  display: inline-block;
-  font-family: var(--font-mono);
+.hero-clear:hover {
+  text-decoration-color: currentColor;
+}
+.hero-cta {
+  margin-top: var(--space-m);
+  font-size: var(--step-1);
+}
+
+/* Dev-only switcher (PiecePreview). */
+.piece-preview {
+  position: fixed;
+  right: var(--space-s);
+  bottom: var(--space-s);
+  z-index: 300;
+  display: flex;
+  gap: var(--space-2xs);
+  padding: var(--space-2xs);
+  border-radius: 999px;
+  background: var(--wall);
+  box-shadow: 0 8px 24px -12px rgba(23, 20, 31, 0.35);
+}
+.piece-preview button {
+  min-height: 2.25rem;
+  padding-inline: 0.875rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  font: inherit;
+  font-size: var(--step-xs);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.piece-preview button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--wall);
 }

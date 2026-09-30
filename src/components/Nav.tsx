@@ -5,11 +5,8 @@ export function Nav() {
   return (
     <header className="nav">
       <div className="wrap nav-inner">
-        <a href="#top" className="nav-name" aria-label={site.name}>
-          <span className="nav-name-full">{site.name}</span>
-          <span className="nav-name-short" aria-hidden="true">
-            {site.shortName}
-          </span>
+        <a href="#top" className="nav-name">
+          {site.name}
         </a>
         <nav aria-label={site.navLabel}>
           <ul className="nav-links">

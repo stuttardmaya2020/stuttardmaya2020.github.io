@@ -1,4 +1,6 @@
 ---
+wallMeta: Senior interaction designer · in progress
+wallLine: Interaction standards for patients who book their own slots.
 order: 4
 cover: booking
 tag: Design system

@@ -11,6 +11,7 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--lilac) var(--wall);
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -19,13 +20,14 @@ html {
 }
 
 body {
-  background: var(--paper);
+  background: var(--wall);
   color: var(--ink);
-  font-family: var(--font-body);
+  font-family: var(--font);
   font-size: var(--step-0);
-  line-height: 1.65;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  caret-color: var(--lilac-ink);
 }
 
 img,
@@ -40,22 +42,26 @@ img {
 
 a {
   color: inherit;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+::selection {
+  background: var(--mount-deep);
+  color: var(--ink);
 }
 
 :focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid var(--lilac-ink);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  font-variation-settings: "SOFT" 50;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
@@ -67,22 +73,67 @@ h3 {
 }
 
 .section {
-  padding-block: var(--space-2xl);
+  padding-block: var(--space-2xl) 0;
   scroll-margin-top: var(--nav-h);
 }
-
-.label {
-  font-family: var(--font-mono);
-  font-size: var(--step--1);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--ink-3);
-}
-
 .section-title {
   font-size: var(--step-3);
+}
+.section-sub {
   margin-top: var(--space-s);
-  max-width: 18ch;
+  max-width: var(--measure);
+  color: var(--ink-soft);
+}
+
+/* Wall label: the one typographic object every piece shares. */
+.wall-label {
+  max-width: var(--label);
+  font-size: var(--step-s);
+  line-height: 1.45;
+}
+.wall-label-title {
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+.label {
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lilac-ink);
+}
+.wall-label-line {
+  margin-top: var(--space-2xs);
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.wall-label p + p {
+  margin-top: var(--space-2xs);
+}
+.wall-label-body {
+  color: var(--ink-soft);
+}
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 2.75rem;
+  font-weight: 600;
+  color: var(--lilac-ink);
+  text-decoration: underline;
+  text-decoration-color: var(--lilac);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+  transition: text-decoration-color 0.2s;
+}
+.arrow {
+  flex-shrink: 0;
+}
+.arrow-link:hover {
+  text-decoration-color: currentColor;
 }
 
 .skip-link {
@@ -91,31 +142,22 @@ h3 {
   top: -3rem;
   z-index: 200;
   background: var(--ink);
-  color: var(--paper);
+  color: var(--wall);
   padding: var(--space-xs) var(--space-s);
-  border-radius: var(--radius);
 }
 .skip-link:focus {
   top: var(--space-xs);
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
 }
 
 .footer {
   display: flex;
   justify-content: space-between;
   gap: var(--space-s);
+  margin-top: var(--space-2xl);
   padding-block: var(--space-l);
   border-top: 1px solid var(--rule);
-  font-size: 0.875rem;
-  color: var(--ink-3);
+  font-size: var(--step-xs);
+  color: var(--ink-soft);
 }
 
 main:focus {

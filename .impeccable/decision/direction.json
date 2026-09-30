@@ -1,0 +1,124 @@
+{
+  "title": "Choose the visual world",
+  "question": "The roll dealt The White Wall. Keep it, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "The White Wall",
+      "kicker": "THE ROLL",
+      "lineage": "white-cube gallery hangs and museum wall labels",
+      "thesis": "Your case studies and your paintings hang on the same white wall, each with a small wall label. Engineer and artist, one exhibition.",
+      "palette": ["#ffffff", "#f6f3fc", "#b9a6e8", "#6a4fc2", "#16131f"],
+      "materials": ["gallery white walls", "lilac vinyl lettering", "small printed wall labels", "hung canvases"],
+      "viewport": "Almost empty white wall. One live piece hangs at the centre: a generative lilac drawing your pointer paints into. Next to it sits a wall label: Maya Stuttard, product designer & creative engineer; 'Untitled (you), 2026. Code and your cursor.' One link: Walk the wall.",
+      "risk": "If the labels get chatty or the wall gets crowded, it turns back into the cluttered page you just rejected.",
+      "raised": [
+        { "from": "challenger-terminal", "raise": "One-voice type: a single type family; hierarchy comes only from size, weight and case." },
+        { "from": "challenger-datamatics", "raise": "No-grey commitment: text is ink or lilac, never a mid-grey tint." },
+        { "from": "challenger-chromatophore", "raise": "The hero piece answers the visitor: calm when idle, it blooms under the pointer and settles when you leave." },
+        { "from": "challenger-installer", "raise": "Case study pages walk in order, with a clear 'next exhibit' at the end of each one." },
+        { "from": "challenger-toycatalogue", "raise": "Each exhibit gets its own flat lilac-tint mount, so work reads as objects, not cards." }
+      ]
+    },
+    {
+      "id": "model-pick",
+      "label": "Wet Wash",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "watercolour on cold-press paper",
+      "thesis": "The whole site is a sheet of white paper. Your cursor drops lilac watercolour that blooms and dries, and the work sits in the washes.",
+      "palette": ["#ffffff", "#efe9fb", "#a58ee0", "#5b3fb0", "#1a1626"],
+      "materials": ["cold-press paper", "watercolour blooms", "pencil-thin rules"],
+      "viewport": "White paper, your name at scale. Pointer movement bleeds lilac pigment through a fluid simulation; the first case study peeks up from below.",
+      "risk": "The most familiar route for an artist-designer portfolio, and the paint can upstage the work."
+    },
+    {
+      "id": "challenger-kiln",
+      "label": "Glaze Shelf",
+      "verdict": "competitive",
+      "lineage": "ceramic glaze test tiles on a kiln shelf",
+      "thesis": "Each project is a glazed test piece on a chalk-white shelf, with a recipe card: role, method, participants, result.",
+      "palette": ["#fbfbf8", "#e4dff0", "#7b61d1", "#3a2a78", "#1a1a1a"],
+      "materials": ["chalk-white kiln shelf", "lilac glaze runs", "typed recipe cards"],
+      "viewport": "One shelf row of lilac glaze pieces; hovering one lets its glaze run toward the recipe card beneath it.",
+      "case": "Fuses cleanly for clarity (recipe card = case metadata), but design leads don't recognise themselves in a kiln.",
+      "risk": "Reads as a craft-pottery site if the recipe cards aren't disciplined."
+    },
+    {
+      "id": "challenger-terminal",
+      "label": "Phosphor Terminal",
+      "verdict": "declined",
+      "lineage": "green-phosphor terminals",
+      "thesis": "The portfolio as a live terminal transcript.",
+      "palette": ["#0a0f0a", "#33ff66"],
+      "materials": ["curved glass", "scanlines"],
+      "viewport": "Blinking cursor, typed intro.",
+      "case": "Breaks your white-and-lilac brief and reads developer, not designer.",
+      "risk": "Costume.",
+      "kept": "One-voice type discipline."
+    },
+    {
+      "id": "challenger-datamatics",
+      "label": "Datamatics Field",
+      "verdict": "declined",
+      "lineage": "Ikeda data-sublime installations",
+      "thesis": "Barcode fields and sine lattices in pure black and white.",
+      "palette": ["#000000", "#ffffff"],
+      "materials": ["hairline bars", "monospace numerics"],
+      "viewport": "A strobing barcode wall.",
+      "case": "Cold and dense; the opposite of 'pull someone in'.",
+      "risk": "Alienating.",
+      "kept": "No-grey tonal commitment."
+    },
+    {
+      "id": "challenger-chromatophore",
+      "label": "Living Skin",
+      "verdict": "declined",
+      "lineage": "cephalopod chromatophores",
+      "thesis": "A surface that changes pattern with context.",
+      "palette": ["#f1e9df", "#8a3b2a", "#3fb8a5"],
+      "materials": ["pigment cells", "shader textures"],
+      "viewport": "A pale skin rippling with signals.",
+      "case": "Striking but says nothing about product design.",
+      "risk": "Uncanny.",
+      "kept": "The hero answers the visitor's state."
+    },
+    {
+      "id": "challenger-installer",
+      "label": "Shareware Wizard",
+      "verdict": "declined",
+      "lineage": "90s install wizards",
+      "thesis": "The portfolio as a Next > Next > Finish sequence.",
+      "palette": ["#c0c0c0", "#000080"],
+      "materials": ["beveled chrome", "dithered banner"],
+      "viewport": "A grey dialog box.",
+      "case": "Gimmick; hides the work behind clicks.",
+      "risk": "Novelty.",
+      "kept": "Ordered next-exhibit navigation."
+    },
+    {
+      "id": "challenger-toycatalogue",
+      "label": "Toy Catalogue",
+      "verdict": "declined",
+      "lineage": "80s toy catalogues",
+      "thesis": "Work packed edge to edge on flat primary sweeps.",
+      "palette": ["#e32b2b", "#f7d21a", "#1f4fd1"],
+      "materials": ["flat colour sweeps", "starburst flashes"],
+      "viewport": "A packed spread.",
+      "case": "The clutter you asked to remove.",
+      "risk": "Noise.",
+      "kept": "Every piece on its own flat colour mount."
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "buildPath": { "value": "code" },
+  "canon": true,
+  "canonCard": {
+    "label": "The category standard",
+    "thesis": "A clean designer portfolio: big intro line, project grid, about, contact, done impeccably.",
+    "palette": ["#ffffff", "#f4f1fb", "#6a4fc2", "#111111"],
+    "materials": ["clean grid", "large project thumbnails"],
+    "viewport": "Name and one-line intro, then a 2-column grid of case studies.",
+    "risk": "Looks like every other portfolio a hiring manager opens that day."
+  },
+  "steer": true
+}

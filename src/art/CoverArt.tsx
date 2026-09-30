@@ -22,7 +22,7 @@ export function CoverArt({ motif }: { motif: string }) {
 
   return (
     <svg className="cover-art" viewBox="0 0 320 240" aria-hidden="true" focusable="false">
-      <motion.g variants={inkVariants} fill="none" stroke="var(--ink)" strokeWidth={1.25} opacity={0.75}>
+      <motion.g variants={inkVariants} fill="none" stroke="var(--lilac-mid)" strokeWidth={1.25}>
         {art.ink.map((d) => (
           <path key={d} d={d} vectorEffect="non-scaling-stroke" />
         ))}
@@ -30,7 +30,7 @@ export function CoverArt({ motif }: { motif: string }) {
       <motion.path
         d={art.accent}
         fill="none"
-        stroke="var(--accent)"
+        stroke="var(--lilac-ink)"
         strokeWidth={2.75}
         strokeLinecap="round"
         strokeLinejoin="round"

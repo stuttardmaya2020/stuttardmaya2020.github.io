@@ -1,4 +1,6 @@
 ---
+wallMeta: Final year project · 2023–24
+wallLine: One task, three interfaces, three very different people.
 order: 5
 cover: dissertation
 tag: Academic

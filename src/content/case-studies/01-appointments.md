@@ -1,4 +1,6 @@
 ---
+wallMeta: Senior interaction designer · 2025–now
+wallLine: One national standard for how patients understand their appointments.
 order: 1
 featured: true
 cover: appointments

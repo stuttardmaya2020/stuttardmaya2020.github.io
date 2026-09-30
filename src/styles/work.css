@@ -1,96 +1,63 @@
-.work-sub {
-  margin-top: var(--space-m);
-  max-width: var(--measure);
-  color: var(--ink-2);
-}
-
-.case-grid {
+/* A gallery hang, not a card grid: one large piece, then pairs hung at staggered heights. */
+.hang {
   list-style: none;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-xl) var(--space-l);
+  gap: var(--space-xl);
   margin-top: var(--space-xl);
 }
-@media (min-width: 40rem) {
-  .case-grid {
+@media (min-width: 45rem) {
+  .hang {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2rem, 6vw, 7rem);
+    row-gap: var(--space-2xl);
   }
-  .case-item--featured {
+  .exhibit--featured {
     grid-column: 1 / -1;
   }
-}
-
-.case-card {
-  display: grid;
-  gap: var(--space-m);
-  text-decoration: none;
-  border-radius: var(--radius);
-}
-.case-card:focus-visible {
-  outline-offset: 8px;
-}
-@media (min-width: 60rem) {
-  .case-item--featured .case-card {
-    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-    gap: var(--space-xl);
-    align-items: center;
+  .exhibit:not(.exhibit--featured):nth-child(odd) {
+    margin-top: var(--space-2xl); /* the right-hand piece of each pair hangs lower */
   }
 }
 
-.case-cover {
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius);
-  background: var(--paper-2);
+.exhibit-link {
+  display: grid;
+  gap: var(--space-m);
+  color: inherit;
+  text-decoration: none;
+}
+.exhibit-link:focus-visible {
+  outline-offset: 10px;
+}
+@media (min-width: 60rem) {
+  .exhibit--featured .exhibit-link {
+    grid-template-columns: minmax(0, 1fr) var(--label);
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: end;
+  }
+}
+
+.exhibit-mount {
   display: grid;
   place-items: center;
-  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--mount);
+  transition: background-color 0.3s;
+}
+.exhibit-link:hover .exhibit-mount,
+.exhibit-link:focus-visible .exhibit-mount {
+  background: var(--mount-deep);
 }
 .cover-art {
-  width: 82%;
+  width: 72%;
   height: auto;
   overflow: visible;
 }
 
-.case-kicker {
-  display: flex;
-  gap: var(--space-s);
-}
-.case-title {
-  position: relative;
-  display: inline-block;
-  margin-top: var(--space-xs);
-  font-size: var(--step-2);
-  padding-bottom: 0.15em;
-}
-.case-item--featured .case-title {
-  font-size: var(--step-3);
-}
-.case-title-rule {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1.5px;
-  background: var(--ink);
-  transform-origin: left;
-  transform: scaleX(0);
-}
-.case-summary {
-  margin-top: var(--space-xs);
-  max-width: var(--measure);
-  font-size: 0.9375rem;
-  color: var(--ink-2);
-}
-.case-meta {
-  margin-top: var(--space-s);
-}
-.case-link {
-  display: inline-flex;
-  gap: var(--space-xs);
-  margin-top: var(--space-s);
-  font-weight: 500;
-}
-.case-link span {
-  display: inline-block;
-  font-family: var(--font-mono);
+.exhibit-link:hover .wall-label-title,
+.exhibit-link:focus-visible .wall-label-title {
+  text-decoration: underline;
+  text-decoration-color: var(--lilac);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
 }

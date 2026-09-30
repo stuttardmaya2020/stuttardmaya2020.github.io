@@ -1,4 +1,6 @@
 ---
+wallMeta: Senior interaction designer · 2025–26
+wallLine: Clinical questionnaires, rebuilt for people in mental health care.
 order: 2
 cover: questionnaires
 tag: Sensitive UX

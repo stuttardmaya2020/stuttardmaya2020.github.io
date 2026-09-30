@@ -1,5 +1,4 @@
 ---
-label: Case studies
-title: Selected work
-sub: "A handful of projects, told the way they actually happened: the context, the hard calls, and what came of it. Screens are withheld for client confidentiality."
+title: The work
+sub: Five projects, told the way they happened. Screens stay with the clients.
 ---

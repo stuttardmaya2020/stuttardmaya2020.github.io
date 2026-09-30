@@ -1,16 +1,14 @@
 ---
 name: Maya Stuttard
 shortName: Maya
-title: Maya Stuttard, Product Designer
 nav:
-  - { label: About, href: "#about" }
   - { label: Work, href: "#work" }
-  - { label: Why me, href: "#why-me" }
+  - { label: Paintings, href: "#paintings" }
   - { label: Contact, href: "#contact" }
 skipLink: Skip to content
 navLabel: Main
-backToWork: All work
-readCaseStudy: Read case study
-takeawayLabel: Key takeaway
+backToWork: Back to the wall
+nextExhibit: Next exhibit
+takeawayLabel: Takeaway
 footer: "2026"
 ---

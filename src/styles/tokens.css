@@ -1,29 +1,27 @@
 :root {
-  /* Colour. Accent has one job: hand-drawn marks. Text never uses it at this value. */
-  --paper: #faf7f2;
-  --paper-2: #f2ece2;
-  --note: #fffcf7;
-  --ink: #17161a;
-  --ink-2: #55534c; /* 7.2:1 on paper */
-  --ink-3: #66625a; /* 5.2:1 on paper-2, lowest surface it sits on */
-  --accent: #c1573a; /* marks only */
-  --accent-ink: #9e4128; /* accent-coloured text, 5.5:1 on paper-2 */
-  --blush: #f3d9ce;
-  --blush-deep: #e7bfae;
-  --live: #2f7d4f;
-  --rule: rgba(23, 22, 26, 0.14);
+  /* Colour. White walls, lilac mounts, ink labels. Text is ink, ink-soft or lilac-ink, never grey. */
+  --wall: #ffffff;
+  --mount: #f6f3fd; /* lilac tint behind every hung piece */
+  --mount-deep: #ece5fb; /* mount on hover */
+  --ink: #17141f;
+  --ink-soft: #4d4566; /* 7.3:1 on mount-deep, lowest surface it sits on */
+  --lilac-ink: #5b3fb3; /* lilac text and links, 6.1:1 on mount-deep */
+  --lilac-mid: #8b72d6; /* drawn lines only */
+  --lilac: #b8a4ec; /* drawn lines only */
+  --rule: rgba(23, 20, 31, 0.12);
+  --nav-bg: rgba(255, 255, 255, 0.9);
 
-  /* Type */
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body: "DM Sans", system-ui, sans-serif;
-  --font-mono: "Fragment Mono", ui-monospace, monospace;
+  /* Type: one family. Hierarchy from size, weight and case only. */
+  --font: "Schibsted Grotesk", system-ui, sans-serif;
 
-  --step--1: 0.8125rem; /* 13px: mono labels only */
+  --step--1: 0.8125rem; /* 13px: small caps labels */
+  --step-xs: 0.875rem; /* 14px: captions, hints, footer */
+  --step-s: 0.9375rem; /* 15px: wall labels, nav */
   --step-0: 1.0625rem; /* 17px: body */
   --step-1: clamp(1.1875rem, 1.1rem + 0.35vw, 1.375rem);
   --step-2: clamp(1.5rem, 1.3rem + 0.9vw, 2rem);
-  --step-3: clamp(2rem, 1.55rem + 2vw, 3.25rem);
-  --step-4: clamp(2.25rem, 1.5rem + 4.2vw, 5.5rem);
+  --step-3: clamp(2.25rem, 1.6rem + 2.8vw, 4rem);
+  --step-4: clamp(3rem, 1.8rem + 5.6vw, 6rem);
 
   /* Space */
   --space-2xs: 0.25rem;
@@ -35,8 +33,8 @@
   --space-2xl: clamp(5rem, 3.5rem + 7vw, 10rem);
 
   --gutter: clamp(1rem, 0.5rem + 3vw, 2.5rem);
-  --max: 72rem;
+  --max: 80rem;
   --measure: 38rem;
+  --label: 19rem; /* wall label width */
   --nav-h: 4rem;
-  --radius: 6px;
 }

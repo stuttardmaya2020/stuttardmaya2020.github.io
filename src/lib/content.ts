@@ -1,8 +1,7 @@
 import siteMd from "../content/site.md";
 import heroMd from "../content/hero.md";
-import aboutMd from "../content/about.md";
 import workMd from "../content/work.md";
-import whyMeMd from "../content/why-me.md";
+import artMd from "../content/art.md";
 import contactMd from "../content/contact.md";
 
 export interface Link {
@@ -13,61 +12,42 @@ export interface Link {
 export interface Site {
   name: string;
   shortName: string;
-  title: string;
   nav: Link[];
   skipLink: string;
   navLabel: string;
   backToWork: string;
-  readCaseStudy: string;
+  nextExhibit: string;
   takeawayLabel: string;
   footer: string;
 }
 
 export interface Hero {
-  eyebrow: string;
-  status: string;
-  headline: { before: string; rule: string; middle: string; brush: string; after: string };
-  lede: string;
-  primary: Link;
-  secondary: Link;
-}
-
-export interface About {
-  label: string;
-  intro: string;
-  highlight: string;
-  valuesTitle: string;
-  values: { title: string; body: string }[];
-  experienceTitle: string;
-  experience: { years: string; title: string; detail: string }[];
-  factsTitle: string;
-  facts: string[];
-  paintings: { src: string; alt: string; zoom?: number; focus?: string }[];
-  paintingsCaption: string;
-  photosTitle: string;
-  photos: { src: string; alt: string; focus: string }[];
-  photosCaption: string;
+  name: string;
+  role: string;
+  pieceTitle: string;
+  pieceYear: string;
+  medium: string;
+  hint: string;
+  clear: string;
+  cta: Link;
 }
 
 export interface Work {
-  label: string;
   title: string;
   sub: string;
 }
 
-export interface WhyMe {
-  label: string;
+export interface Art {
   title: string;
-  notesTitle: string;
-  testimonials: { quote: string; role: string; org: string }[];
-  faqTitle: string;
-  faq: { q: string; a: string }[];
+  sub: string;
+  paintings: { src: string; size: [number, number]; title: string; medium: string; alt: string; zoom?: number; focus?: string }[];
+  photosTitle: string;
+  photosSub: string;
+  photos: { src: string; title: string; alt: string; focus: string }[];
 }
 
 export interface Contact {
-  label: string;
   heading: string;
-  sub: string;
   email: string;
   links: Link[];
 }
@@ -79,9 +59,8 @@ export interface CaseStudy {
   cover: string;
   tag: string;
   title: string;
-  summary: string;
-  cardMeta?: string;
-  linkLabel?: string;
+  wallMeta: string;
+  wallLine: string;
   heading: string;
   intro: string;
   meta: { label: string; value: string }[];
@@ -93,9 +72,8 @@ export interface CaseStudy {
 
 export const site = siteMd.data as unknown as Site;
 export const hero = heroMd.data as unknown as Hero;
-export const about = { ...(aboutMd.data as unknown as About), html: aboutMd.html };
 export const work = workMd.data as unknown as Work;
-export const whyMe = whyMeMd.data as unknown as WhyMe;
+export const art = artMd.data as unknown as Art;
 export const contact = contactMd.data as unknown as Contact;
 
 const caseFiles = import.meta.glob<{ data: Record<string, unknown>; html: string }>(

@@ -7,29 +7,26 @@ export interface CoverMotif {
   accent: string;
 }
 
-const circle = (cx: number, cy: number, r: number) =>
-  `M${cx - r} ${cy}a${r} ${r} 0 1 0 ${r * 2} 0a${r} ${r} 0 1 0 ${-r * 2} 0`;
-
 export const COVER_MOTIFS: Record<string, CoverMotif> = {
-  // One notification, three honest variants underneath it.
+  // One notification, three honest variants underneath it; one confirmed.
   appointments: {
     ink: [
       "M72 46 H248 V122 H72 Z",
       "M92 70 H196",
       "M92 94 H164",
-      "M160 122 C160 150 104 156 96 190",
-      "M160 122 V190",
-      "M160 122 C160 150 216 156 224 190",
-      circle(96, 196, 6),
-      circle(160, 196, 6),
-      circle(224, 196, 6),
+      "M160 122 C160 150 104 156 96 184",
+      "M160 122 V184",
+      "M160 122 C160 150 216 156 224 184",
+      "M82 196 H110",
+      "M146 196 H174",
+      "M210 196 H238",
     ],
-    accent: "M142 190 C140 172 178 170 182 190 C186 210 150 218 140 202 C134 192 146 180 162 180",
+    accent: "M150 210 L158 218 L174 200",
   },
-  // Steps in a row, and the path people actually took through them.
+  // Steps in a row, and the path people actually took: forward, back, forward.
   questionnaires: {
-    ink: ["M64 150 H256", circle(64, 150, 7), circle(112, 150, 7), circle(160, 150, 7), circle(208, 150, 7), circle(256, 150, 7)],
-    accent: "M64 150 C84 84 132 84 160 142 C178 180 104 196 112 150 C118 108 236 74 256 150",
+    ink: ["M64 150 H256", "M64 142 V158", "M112 142 V158", "M160 142 V158", "M208 142 V158", "M256 142 V158"],
+    accent: "M64 118 L208 118 L112 96 L256 96",
   },
   // The calendar grid, crossed out.
   rescheduling: {
@@ -51,11 +48,16 @@ export const COVER_MOTIFS: Record<string, CoverMotif> = {
       "M96 106 H224 A14 14 0 0 1 224 134 H96 A14 14 0 0 1 96 106 Z",
       "M96 150 H224 A14 14 0 0 1 224 178 H96 A14 14 0 0 1 96 150 Z",
     ],
-    accent: "M80 124 C72 100 130 96 176 98 C236 100 256 108 252 124 C248 144 186 146 124 144 C92 143 74 138 82 116",
+    accent: "M146 120 L156 129 L176 110",
   },
-  // Watching how people use things.
+  // One task, three screens for three different people.
   dissertation: {
-    ink: ["M60 120 C112 58 208 58 260 120 C208 182 112 182 60 120 Z", circle(160, 120, 26)],
-    accent: "M160 120 C170 112 178 124 168 132 C154 142 140 124 150 110 C162 94 190 106 188 128 C186 150 156 160 138 146",
+    ink: [
+      "M52 70 H172 V156 H52 Z",
+      "M92 156 V172 H132 V156",
+      "M188 92 H248 V172 H188 Z",
+      "M262 108 H290 V172 H262 Z",
+    ],
+    accent: "M52 196 H290",
   },
 };

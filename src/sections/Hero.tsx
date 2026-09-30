@@ -1,64 +1,41 @@
-import { motion, useReducedMotion } from "framer-motion";
-import { HeroCanvas } from "../art/HeroCanvas";
-import { Scribble } from "../components/Scribble";
+import { useState } from "react";
+import { FlowCanvas } from "../art/FlowCanvas";
+import type { PieceStyle } from "../art/flowField";
+import { PiecePreview } from "../components/PiecePreview";
+import { Arrow } from "../components/Arrow";
 import { hero } from "../lib/content";
-import { EASE_DRAW, rise, stagger } from "../lib/motion";
 import "../styles/hero.css";
 
-const BRUSH = "M3 8.5C38 3.5 74 10 110 6.5S176 2.5 197 7";
-const RULE_FROM = "0% 0.07em";
-const RULE_TO = "100% 0.07em";
-
+/** First viewport: one live piece hung on a white wall, with its wall label. */
 export function Hero() {
-  const reduce = useReducedMotion();
-  const { headline: h } = hero;
+  const [clearKey, setClearKey] = useState(0);
+  const [pieceStyle, setPieceStyle] = useState<PieceStyle>("drift");
 
   return (
-    <header id="top" className="hero" aria-labelledby="hero-title">
-      <HeroCanvas className="hero-art" />
-      <motion.div className="wrap hero-inner" variants={stagger(0.09, 0.1)} initial="hidden" animate="shown">
-        <motion.p className="hero-eyebrow label" variants={rise}>
-          <span>{hero.eyebrow}</span>
-          <span className="hero-status">
-            <span className="live-dot" aria-hidden="true" />
-            {hero.status}
-          </span>
-        </motion.p>
-        <motion.h1 id="hero-title" className="hero-title" variants={rise}>
-          {h.before}{" "}
-          {/* Engineer's brain: a ruled line. Artist's eye: a brush stroke. */}
-          <motion.span
-            className="hl-rule"
-            initial={{ backgroundSize: reduce ? RULE_TO : RULE_FROM }}
-            animate={{ backgroundSize: RULE_TO }}
-            transition={{ duration: 0.7, delay: 0.8, ease: EASE_DRAW }}>
-            {h.rule}
-          </motion.span>{" "}
-          {h.middle}{" "}
-          <span className="hl-brush">
-            {h.brush}
-            <Scribble className="hl-brush-mark" d={BRUSH} viewBox="0 0 200 12" trigger="mount" delay={1.2} />
-          </span>
-          {h.after}
-        </motion.h1>
-        <motion.p className="hero-lede" variants={rise}>
-          {hero.lede}
-        </motion.p>
-        <motion.div className="hero-actions" variants={rise}>
-          <motion.a href={hero.primary.href} className="button" whileHover="hover" whileFocus="hover">
-            {hero.primary.label}
-            <motion.span aria-hidden="true" variants={{ hover: { y: 3 } }}>
-              ↓
-            </motion.span>
-          </motion.a>
-          <motion.a href={hero.secondary.href} className="text-link" whileHover="hover" whileFocus="hover">
-            {hero.secondary.label}
-            <motion.span aria-hidden="true" variants={{ hover: { x: 3 } }}>
-              →
-            </motion.span>
-          </motion.a>
-        </motion.div>
-      </motion.div>
+    <header id="top" className="wrap hero" aria-labelledby="hero-title">
+      <figure className="piece">
+        <FlowCanvas clearKey={clearKey} pieceStyle={pieceStyle} />
+      </figure>
+      <div className="wall-label hero-label">
+        <h1 id="hero-title" className="hero-name">
+          {hero.name}
+        </h1>
+        <p className="hero-role">{hero.role}</p>
+        <p className="hero-work">
+          <em>{hero.pieceTitle}</em>, {hero.pieceYear}
+        </p>
+        <p className="wall-label-body">{hero.medium}</p>
+        <p className="hero-hint">
+          {hero.hint}{" "}
+          <button type="button" className="hero-clear" onClick={() => setClearKey((k) => k + 1)}>
+            {hero.clear}
+          </button>
+        </p>
+        <a href={hero.cta.href} className="arrow-link hero-cta">
+          {hero.cta.label} <Arrow dir="down" />
+        </a>
+      </div>
+      {import.meta.env.DEV && <PiecePreview value={pieceStyle} onChange={setPieceStyle} />}
     </header>
   );
 }
