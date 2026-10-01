@@ -1,63 +1,133 @@
-/* A gallery hang, not a card grid: one large piece, then pairs hung at staggered heights. */
-.hang {
-  list-style: none;
+.cards {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: var(--space-xl);
-  margin-top: var(--space-xl);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
 }
-@media (min-width: 45rem) {
-  .hang {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: clamp(2rem, 6vw, 7rem);
-    row-gap: var(--space-2xl);
-  }
-  .exhibit--featured {
-    grid-column: 1 / -1;
-  }
-  .exhibit:not(.exhibit--featured):nth-child(odd) {
-    margin-top: var(--space-2xl); /* the right-hand piece of each pair hangs lower */
-  }
+.card--wide {
+  grid-column: 1 / -1;
 }
-
-.exhibit-link {
-  display: grid;
-  gap: var(--space-m);
-  color: inherit;
+.card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
   text-decoration: none;
+  transition: border-color 0.3s;
 }
-.exhibit-link:focus-visible {
-  outline-offset: 10px;
+.card-link:hover {
+  color: inherit;
+  border-color: #c9c9cf;
 }
-@media (min-width: 60rem) {
-  .exhibit--featured .exhibit-link {
-    grid-template-columns: minmax(0, 1fr) var(--label);
-    gap: clamp(2.5rem, 5vw, 5rem);
-    align-items: end;
+.card--wide .card-link {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+}
+.card--wide .card-visual {
+  order: 2;
+  min-height: 26rem;
+}
+
+.card-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 16rem;
+  padding: var(--space-l) var(--space-m);
+  overflow: hidden;
+}
+.card--notification .card-visual { background: var(--tint-notification); }
+.card--loop .card-visual { background: var(--tint-loop); }
+.card--paths .card-visual { background: var(--tint-paths); }
+.card--ages .card-visual { background: var(--tint-ages); }
+.card--ages.card--wide .card-visual { min-height: 16rem; }
+
+.card-visual > * {
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.card-link:hover .card-visual > * {
+  transform: scale(1.03);
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: clamp(1.75rem, 1.2rem + 2vw, 3rem) clamp(1.5rem, 1rem + 2vw, 2.75rem);
+}
+.card-title {
+  font-size: var(--step-2);
+  transition: color 0.3s;
+}
+.card--wide:first-child .card-title {
+  font-size: clamp(1.875rem, 1.5rem + 1.4vw, 2.5rem);
+}
+.card-link:hover .card-title {
+  color: var(--accent);
+}
+.card-line {
+  color: var(--ink-soft);
+}
+.card-stats {
+  display: flex;
+  gap: var(--space-l);
+  margin-top: var(--space-xs);
+  padding-top: 1.375rem;
+  border-top: 1px solid var(--rule-soft);
+}
+.card-stats div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.card-stats dd {
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 1.1;
+}
+.card-stats dt {
+  font-size: var(--step-xs);
+  color: var(--ink-mute);
+}
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-xs);
+  font-weight: 500;
+}
+.card-link:hover .card-cta .arrow {
+  transform: translateX(5px);
+}
+
+@media (max-width: 52rem) {
+  .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .card--wide .card-link {
+    display: flex;
+  }
+  .card--wide .card-visual {
+    order: 0;
+    min-height: 18rem;
   }
 }
-
-.exhibit-mount {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 4 / 3;
-  background: var(--mount);
-  transition: background-color 0.3s;
+@media (max-width: 40rem) {
+  .section-script {
+    position: static;
+    display: block;
+    margin-top: 0.25rem;
+  }
 }
-.exhibit-link:hover .exhibit-mount,
-.exhibit-link:focus-visible .exhibit-mount {
-  background: var(--mount-deep);
-}
-.cover-art {
-  width: 72%;
-  height: auto;
-  overflow: visible;
-}
-
-.exhibit-link:hover .wall-label-title,
-.exhibit-link:focus-visible .wall-label-title {
-  text-decoration: underline;
-  text-decoration-color: var(--lilac);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 0.2em;
+@media (prefers-reduced-motion: reduce) {
+  .card-visual > *,
+  .card-title,
+  .card-link {
+    transition: none;
+  }
+  .card-link:hover .card-visual > * {
+    transform: none;
+  }
 }

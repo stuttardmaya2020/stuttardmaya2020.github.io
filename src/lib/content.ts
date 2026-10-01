@@ -1,6 +1,8 @@
 import siteMd from "../content/site.md";
 import heroMd from "../content/hero.md";
 import workMd from "../content/work.md";
+import processMd from "../content/process.md";
+import aboutMd from "../content/about.md";
 import artMd from "../content/art.md";
 import contactMd from "../content/contact.md";
 
@@ -11,68 +13,101 @@ export interface Link {
 
 export interface Site {
   name: string;
-  shortName: string;
-  nav: Link[];
+  logo: string;
+  nav: (Link & { icon: "work" | "play" | "about" })[];
   skipLink: string;
   navLabel: string;
-  backToWork: string;
-  nextExhibit: string;
-  takeawayLabel: string;
+  allWork: string;
+  nextCase: string;
+  takeawayScript: string;
   footer: string;
+  backToTop: string;
 }
 
 export interface Hero {
-  name: string;
-  role: string;
-  pieceTitle: string;
-  pieceYear: string;
-  medium: string;
-  hint: string;
-  clear: string;
+  eyebrow: string;
+  headlineBefore: string;
+  headlineCircled: string;
+  headlineAfter: string;
+  script: string;
+  sub: string;
   cta: Link;
+  secondary: Link;
+  scrollCue: string;
+  toolkitLabel: string;
+  toolkit: string[];
 }
 
 export interface Work {
   title: string;
+  script: string;
   sub: string;
+  cta: string;
+}
+
+export interface Process {
+  title: string;
+  steps: { name: string; body: string }[];
+}
+
+export interface About {
+  label: string;
+  heading: string;
+  paragraphs: string[];
+  photo: { src: string; alt: string };
+  links: Link[];
 }
 
 export interface Art {
   title: string;
+  titleItalic: string;
   sub: string;
-  paintings: { src: string; size: [number, number]; title: string; medium: string; alt: string; zoom?: number; focus?: string }[];
-  photosTitle: string;
-  photosSub: string;
-  photos: { src: string; title: string; alt: string; focus: string }[];
+  paintings: { src: string; size: [number, number]; title: string; medium: string; alt: string }[];
 }
 
 export interface Contact {
   heading: string;
+  script: string;
+  sub: string;
   email: string;
-  links: Link[];
+}
+
+export type Visual = "notification" | "loop" | "paths" | "ages";
+
+export interface Stat {
+  value: string;
+  label: string;
 }
 
 export interface CaseStudy {
   slug: string;
   order: number;
   featured?: boolean;
-  cover: string;
-  tag: string;
+  visual: Visual;
+  cardMeta: string;
+  cardTitle: string;
+  cardLine: string;
+  cardStats?: Stat[];
+  eyebrow: string;
   title: string;
-  wallMeta: string;
-  wallLine: string;
-  heading: string;
-  intro: string;
-  meta: { label: string; value: string }[];
-  stats?: { value: string; label: string }[];
-  takeaway?: string;
-  note?: string;
+  summary: string;
+  overview: { label: string; value: string }[];
+  visualCaption: string;
+  research?: { label: string; total: string; rounds: { people: number; method: string }[] };
+  decisions: { title: string; body: string; chips?: string[] }[];
+  stats: Stat[];
+  impactTitle?: string;
+  impact: string;
+  takeaway: string;
+  /** The problem, as rendered markdown. */
   html: string;
 }
 
 export const site = siteMd.data as unknown as Site;
 export const hero = heroMd.data as unknown as Hero;
 export const work = workMd.data as unknown as Work;
+export const howIWork = processMd.data as unknown as Process;
+export const about = aboutMd.data as unknown as About;
 export const art = artMd.data as unknown as Art;
 export const contact = contactMd.data as unknown as Contact;
 

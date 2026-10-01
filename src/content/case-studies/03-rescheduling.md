@@ -1,45 +1,31 @@
 ---
-wallMeta: Senior interaction designer · 2025–26
-wallLine: Three rescheduling journeys that never promise more than the system can do.
 order: 3
-cover: rescheduling
-tag: Constraints
-title: Rescheduling uplift
-summary: Three adaptable rescheduling journeys that accommodate varied technical backends without confusing the patient.
-heading: Rescheduling, designing around system constraints
-intro: Not every regional provider can stream real-time calendar availability to a central application. Patients trying to reschedule kept hitting dead ends, driving up contact centre volumes and missed appointments. The goal was an experience that adapts across wildly different provider tech capabilities without ever feeling broken to the patient.
-meta:
-  - { label: Role, value: Senior Interaction Designer }
-  - { label: Timeline, value: 2025 to 2026 }
-  - { label: Worked with, value: "Product manager, user researcher, engineering" }
-  - { label: Status, value: "Shipped, governance complete" }
+visual: paths
+cardMeta: Client work · 2025 – 26
+cardTitle: One journey, three back-ends
+cardLine: I killed the calendar picker. It promised instant booking that some systems couldn't deliver.
+eyebrow: Case study · Client work at Accenture · 2025 – 2026
+title: One journey, three back-ends
+summary: Not every organisation's system can share live availability. People kept hitting dead ends, then picking up the phone. I designed rescheduling that adapts to what each system can actually do, without ever feeling broken.
+overview:
+  - { label: My role, value: "Senior Interaction Designer. I owned the journeys from research to governance." }
+  - { label: Team, value: "Product manager, user researcher, engineers." }
+  - { label: Timeline, value: 2025 to 2026. Shipped. }
+  - { label: Tools, value: "Figma, plus coded prototypes in HTML, CSS and JavaScript, built with GitHub Copilot." }
+visualCaption: Three journeys, one experience. Illustrative.
+decisions:
+  - title: Kill the calendar
+    body: A calendar grid was the expected pattern, and the wrong one. Where a system couldn't confirm instantly, I replaced it with a preference step for days and time windows. A harder sell, because on paper it looked less polished.
+    chips: [Live slots, Preferences, Request]
+  - title: Lead with honesty
+    body: I reordered confirmation screens to lead with status and a realistic response time, instead of a false sense of instant confirmation.
 stats:
-  - { value: "25", label: Participants across four research rounds }
-  - { value: "3", label: Configurable journey patterns for provider support }
-takeaway: Don't let the interface promise more certainty than the system behind it can actually deliver.
-note: Screens omitted, client confidentiality
+  - { value: "25", label: participants across four rounds }
+  - { value: "3", label: configurable journey patterns }
+impact: All three journeys passed programme governance. They're reducing dead ends where live integration isn't possible, and keeping expectations accurate whichever system someone lands on.
+takeaway: Consistency and honesty aren't the same thing. Don't let an interface promise more than the system behind it can deliver.
 ---
 
-## Context: why this project exists
+A dead end in a booking flow doesn't fail quietly. It sends people to a phone line, which is slower for them and more expensive for everyone. So I designed for the least capable system in the network, not the most capable one.
 
-A dead end in a booking flow doesn't just fail quietly. It pushes the patient to call a contact centre, which is slower for them and more expensive for the provider. Fixing this meant designing for the worst-supported provider in the network, not the best-supported one.
-
-## Key design moments
-
-### Killing the interactive calendar
-
-An interactive calendar grid was the obvious, expected pattern, and it was also the wrong one. Testing showed it implied immediate live booking. When the backend actually required manual processing behind the scenes, that implied promise broke on delivery and trust dropped sharply. I replaced it with a clear preference-selection step instead of a calendar, a harder sell internally because it looked, on paper, like a step backward in polish.
-
-> Testing showed interactive calendar views implied immediate live booking to users. When visual cues suggested immediate confirmation but the backend required manual processing, trust dropped.
-
-## What shipped
-
-Three configurable journeys: live slot selection where the backend supports it, preference selection (day and time windows) where it doesn't, and request-based routing for complex care plans needing prior clinical triage. Confirmation screens were reordered to lead with status and realistic response timeframes rather than a false sense of instant confirmation.
-
-## Impact
-
-All three journey variations passed programme governance and are reducing dead ends for non-integrated providers, while keeping patient expectations accurate regardless of which backend they land on.
-
-## Reflection
-
-This project taught me that consistency and honesty aren't the same thing. Making three journeys look and feel coherent was harder than making one polished flow, but a single dishonest flow would have been worse for every patient it touched.
+> The insight: calendar views implied instant booking. When the system actually needed manual processing, trust dropped sharply.

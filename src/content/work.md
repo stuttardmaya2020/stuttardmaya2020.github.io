@@ -1,4 +1,6 @@
 ---
-title: The work
-sub: Five projects, told the way they happened. Screens stay with the clients.
+title: Selected work
+script: the day job
+sub: Client work at Accenture, plus my dissertation. Client screens are confidential, so visuals are illustrative.
+cta: Read case study
 ---

@@ -1,102 +1,100 @@
 .hero {
-  display: grid;
-  gap: var(--space-l);
-  align-content: center;
-  min-height: min(calc(100svh - var(--nav-h)), 58rem);
-  padding-block: var(--space-l) var(--space-xl);
-  scroll-margin-top: var(--nav-h);
-}
-@media (min-width: 60rem) {
-  .hero {
-    grid-template-columns: minmax(0, 1fr) var(--label);
-    gap: clamp(2.5rem, 5vw, 5rem);
-    align-items: end;
-  }
-}
-
-.piece {
-  position: relative;
-  aspect-ratio: 4 / 5;
-  max-height: 72svh;
-  background: var(--mount);
-}
-@media (min-width: 40rem) {
-  .piece {
-    aspect-ratio: 4 / 3;
-  }
-}
-.piece-canvas {
-  width: 100%;
-  height: 100%;
-  cursor: crosshair;
-  touch-action: pan-y; /* vertical swipes still scroll the page */
-}
-
-.hero-name {
-  font-size: var(--step-3);
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-}
-.hero-role {
-  margin-top: var(--space-xs);
-  font-size: var(--step-1);
-  font-weight: 500;
-  line-height: 1.25;
-}
-.hero-label .hero-work {
-  margin-top: var(--space-m);
-  padding-top: var(--space-s);
-  border-top: 1px solid var(--rule);
-}
-.hero-hint {
-  font-size: var(--step-xs);
-  color: var(--ink-soft);
-}
-.hero-clear {
-  display: inline;
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  color: var(--lilac-ink);
-  text-decoration: underline;
-  text-decoration-color: var(--lilac);
-  text-underline-offset: 0.2em;
-  cursor: pointer;
-}
-.hero-clear:hover {
-  text-decoration-color: currentColor;
-}
-.hero-cta {
-  margin-top: var(--space-m);
-  font-size: var(--step-1);
-}
-
-/* Dev-only switcher (PiecePreview). */
-.piece-preview {
-  position: fixed;
-  right: var(--space-s);
-  bottom: var(--space-s);
-  z-index: 300;
   display: flex;
-  gap: var(--space-2xs);
-  padding: var(--space-2xs);
-  border-radius: 999px;
-  background: var(--wall);
-  box-shadow: 0 8px 24px -12px rgba(23, 20, 31, 0.35);
+  flex-direction: column;
+  align-items: center;
+  gap: 1.875rem;
+  padding-block: clamp(5rem, 3rem + 8vw, 9.5rem) clamp(4rem, 3rem + 4vw, 7rem);
+  text-align: center;
 }
-.piece-preview button {
-  min-height: 2.25rem;
-  padding-inline: 0.875rem;
-  border: 0;
-  border-radius: 999px;
-  background: none;
-  font: inherit;
-  font-size: var(--step-xs);
+.hero-headline {
+  position: relative;
+  max-width: 62rem;
+}
+.hero-title {
+  font-size: var(--step-4);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+.hero-circled {
+  position: relative;
+  white-space: nowrap;
+}
+.hero-circle {
+  position: absolute;
+  left: -0.25em;
+  top: -0.1em;
+  width: calc(100% + 0.5em);
+  height: calc(100% + 0.2em);
+  overflow: visible;
+  color: var(--accent);
+  pointer-events: none;
+}
+.hero-script {
+  position: absolute;
+  right: -4%;
+  bottom: -0.95em;
+  font-size: clamp(4rem, 2.4rem + 6vw, 8.5rem);
+  transform: rotate(-8deg);
+}
+.hero-sub {
+  max-width: 37rem;
+  margin-top: clamp(3.5rem, 2rem + 5vw, 6rem);
+  font-size: var(--step-1);
   color: var(--ink-soft);
-  cursor: pointer;
 }
-.piece-preview button[aria-pressed="true"] {
-  background: var(--ink);
-  color: var(--wall);
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-m);
+}
+.hero-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+  margin-top: var(--space-xl);
+  font-size: var(--step-xs);
+  color: var(--ink-mute);
+  text-decoration: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-mouse {
+    animation: nudge 2s ease-in-out infinite;
+  }
+}
+@keyframes nudge {
+  50% {
+    transform: translateY(5px);
+  }
+}
+@media (max-width: 40rem) {
+  .hero-script {
+    right: 0;
+    bottom: -1em;
+  }
+  .hero-cue {
+    display: none;
+  }
+}
+
+.toolkit {
+  border-block: 1px solid var(--rule-soft);
+  padding-block: 1.875rem;
+}
+.toolkit-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s) var(--space-l);
+}
+.toolkit-list {
+  display: contents;
+}
+.toolkit-list li {
+  font-family: var(--serif);
+  font-size: 1.375rem;
+  color: #3c3c44;
 }

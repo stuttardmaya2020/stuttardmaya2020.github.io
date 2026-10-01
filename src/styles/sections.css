@@ -1,0 +1,81 @@
+/* How I work */
+.process {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: var(--space-m);
+  border-top: 1px solid var(--ink);
+}
+.process li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.625rem 1.75rem 0;
+  border-left: 1px solid var(--rule);
+}
+.process li:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+.process-name {
+  font-family: var(--serif);
+  font-size: clamp(2.25rem, 1.8rem + 1.6vw, 2.75rem);
+  font-style: italic;
+  line-height: 1;
+  color: var(--accent);
+}
+.process-body {
+  font-size: var(--step-s);
+  color: var(--ink-soft);
+}
+@media (max-width: 48rem) {
+  .process {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .process li,
+  .process li:first-child {
+    padding: var(--space-m) 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+}
+
+/* About */
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  gap: clamp(2rem, 1rem + 5vw, 4.5rem);
+  align-items: center;
+}
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: var(--ink-soft);
+  font-size: 1.125rem;
+}
+.about-heading {
+  font-size: clamp(1.875rem, 1.4rem + 1.8vw, 2.75rem);
+  line-height: 1.12;
+  color: var(--ink);
+}
+.about-links {
+  display: flex;
+  gap: var(--space-m);
+}
+.about-links .ulink {
+  color: var(--ink);
+}
+@media (max-width: 48rem) {
+  .about {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .about-photo {
+    max-width: 22rem;
+  }
+}

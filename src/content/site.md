@@ -1,14 +1,15 @@
 ---
 name: Maya Stuttard
-shortName: Maya
+logo: maya stuttard
 nav:
-  - { label: Work, href: "#work" }
-  - { label: Paintings, href: "#paintings" }
-  - { label: Contact, href: "#contact" }
+  - { label: work, href: "#work", icon: work }
+  - { label: play, href: "#play", icon: play }
+  - { label: about, href: "#about", icon: about }
 skipLink: Skip to content
 navLabel: Main
-backToWork: Back to the wall
-nextExhibit: Next exhibit
-takeawayLabel: Takeaway
-footer: "2026"
+allWork: All work
+nextCase: Next case study
+takeawayScript: what I learned
+footer: "© 2026 Maya Stuttard · Designed in Figma, built with Claude Code"
+backToTop: Back to top
 ---
