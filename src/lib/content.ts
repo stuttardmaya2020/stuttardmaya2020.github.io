@@ -54,7 +54,7 @@ export interface About {
   label: string;
   heading: string;
   paragraphs: string[];
-  photo: { src: string; alt: string };
+  photo: { src: string; alt: string; focus: string };
   links: Link[];
 }
 

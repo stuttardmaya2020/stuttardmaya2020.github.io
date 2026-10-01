@@ -10,8 +10,11 @@ export function About() {
       <motion.img
         className="about-photo"
         src={`/images/${about.photo.src}-800.jpg`}
+        srcSet={`/images/${about.photo.src}-800.jpg 800w, /images/${about.photo.src}.jpg 1400w`}
+        sizes="(min-width: 48rem) 33vw, 90vw"
         width={800}
-        height={1000}
+        height={600}
+        style={{ objectPosition: about.photo.focus }}
         loading="lazy"
         decoding="async"
         alt={about.photo.alt}
