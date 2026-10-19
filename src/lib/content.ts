@@ -71,7 +71,8 @@ export interface Independent {
   script: string;
   sub: string;
   status: string;
-  projects: { name: string; kind: string; line: string; image: string; alt: string }[];
+  visit: string;
+  projects: { name: string; kind: string; line: string; image: string; alt: string; href?: string }[];
 }
 
 export interface Contact {

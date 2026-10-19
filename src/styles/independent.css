@@ -49,3 +49,24 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+.site-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+.site-foot .site-status {
+  margin-top: 0;
+}
+.site-visit {
+  font-weight: 500;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
