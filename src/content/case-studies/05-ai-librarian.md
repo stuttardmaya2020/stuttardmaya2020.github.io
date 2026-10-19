@@ -3,7 +3,7 @@ order: 4
 visual: summary
 cardMeta: Client work · Oct 2025
 cardTitle: An AI librarian for clinical staff
-cardLine: A clinician asks a question, the AI goes and fetches from four records, and every answer says where it came from.
+cardLine: Clinicians ask out loud or in text, the AI fetches from four records, and every answer links back to its source.
 eyebrow: Case study · Client work at Accenture · October 2025
 title: An AI librarian for clinical staff
 summary: Before an appointment, staff have to piece a patient's story together from the GP record, hospital notes, the shared care record and maternity notes. Design leadership asked me to prototype an AI assistant that does the fetching, so they could present it in response to a ministerial request. I had about a month.
@@ -15,12 +15,14 @@ overview:
 visualCaption: Illustrative recreation with made-up data. The prototype used fake patient data too.
 decisions:
   - title: Story first, questions second
-    body: Staff log in, choose the patient and land on why they're here (an 18-week maternity check-up) and their journey so far, already summarised. If they need more, they ask in plain language.
+    body: Staff sign in and find the patient by their patient number or straight from their calendar. They land on why the patient is here (an 18-week maternity check-up) and their journey so far, already summarised. If they need more, they ask in plain language or upload a file.
     chips: [GP record, Hospital record, Shared care record, Maternity notes]
   - title: Every answer says where it came from
-    body: The summary names the record behind each part of the answer, like "from the GP record" or "from the shared care record". A clinician can check it instead of taking the AI's word for it.
+    body: Every piece of information has its source next to it. Where the record can be opened, the source is a link straight to it. Where it can't, the source is named in brackets. A clinician can check it instead of taking the AI's word for it.
+  - title: Talk instead of type
+    body: During the appointment, the clinician can dictate what they found. The prototype faked the recording and played back a sample question, to show that in real life the assistant could answer questions and turn speech into notes.
   - title: Ask before writing back
-    body: After the check-up, the assistant drafts the notes and a next step, such as ordering an iron test. Then it asks "Would you like to update all systems?" and nothing changes until they say yes.
+    body: From what the clinician said, the assistant drafts a summary and a next step, such as ordering an iron test. They review it, confirm the action, and only then does it ask "Would you like to update all systems?"
 stats:
   - { value: "4", label: patient records in one summary }
   - { value: "~1", label: month from brief to presented prototype }
