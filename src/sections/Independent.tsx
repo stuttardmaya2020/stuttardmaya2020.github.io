@@ -40,7 +40,7 @@ export function Independent() {
               <h3 className="site-title">{p.name}</h3>
               <p className="site-line">{p.line}</p>
               <div className="site-foot">
-                <span className="site-status">{independent.status}</span>
+                <span className="site-status">{p.status}</span>
                 {p.href && (
                   <a className="site-visit" href={p.href} target="_blank" rel="noreferrer">
                     {independent.visit}
