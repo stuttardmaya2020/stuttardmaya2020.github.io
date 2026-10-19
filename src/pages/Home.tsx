@@ -1,6 +1,7 @@
 import { Hero } from "../sections/Hero";
 import { Toolkit } from "../sections/Toolkit";
 import { CaseStudies } from "../sections/CaseStudies";
+import { Independent } from "../sections/Independent";
 import { Process } from "../sections/Process";
 import { About } from "../sections/About";
 import { Paintings } from "../sections/Paintings";
@@ -12,6 +13,7 @@ export function Home() {
       <Hero />
       <Toolkit />
       <CaseStudies />
+      <Independent />
       <Process />
       <About />
       <Paintings />

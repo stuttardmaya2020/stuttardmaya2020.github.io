@@ -72,3 +72,24 @@ export function Stats({ stats }: { stats: CaseStudy["stats"] }) {
     </dl>
   );
 }
+
+/** Real process artefacts, each with its own caption. */
+export function Gallery({ gallery }: { gallery: NonNullable<CaseStudy["gallery"]> }) {
+  return (
+    <>
+      {gallery.intro && <p>{gallery.intro}</p>}
+      <ul className="gallery">
+        {gallery.items.map((item) => (
+          <li key={item.src}>
+            <figure>
+              <a href={`/images/${item.src}.jpg`} target="_blank" rel="noreferrer">
+                <img src={`/images/${item.src}.jpg`} width={item.size[0]} height={item.size[1]} loading="lazy" decoding="async" alt={item.alt} />
+              </a>
+              {item.caption && <figcaption>{item.caption}</figcaption>}
+            </figure>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
