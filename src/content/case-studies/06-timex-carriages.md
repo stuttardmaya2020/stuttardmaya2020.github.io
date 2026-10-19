@@ -14,8 +14,8 @@ title: A chauffeur site as calm as the ride
 summary: Timex Carriages is an executive chauffeur service in London, and its website looked years older than its cars. I redesigned and rebuilt it in a week, from a competitor audit and moodboards to a live site the owner signed off.
 overview:
   - { label: My role, value: "Product designer and creative engineer, solo. Research, visual design, wireframes and the build." }
-  - { label: Reviewers, value: "The owner, and a family member who knows the business well." }
-  - { label: Timeline, value: "2 to 6 October 2026. Live and still evolving." }
+  - { label: Reviewers, value: "The owner, and his son, who knows the business well." }
+  - { label: Timeline, value: "First version live in five days, from 2 October 2026. Still refining it." }
   - { label: Tools, value: "Figma, then HTML, CSS and JavaScript built with AI, hosted free on GitHub Pages." }
 visualCaption: The live site at timexcarriageslondon.com.
 decisions:
@@ -66,7 +66,7 @@ stats:
   - { value: "3", label: visual directions explored }
   - { value: "1", label: action on every screen }
 impactTitle: Outcome
-impact: The new site replaced the old one on the business's own domain, at no cost. The owner signed it off on 6 October and liked that it's simple and straight to the point. Next up is a short usability test with five people, and validating the personas, which are still assumptions.
+impact: The new site replaced the old one on the business's own domain, at no cost. The owner signed it off on 6 October and likes that it's simple and straight to the point. I'm still refining the visual design so it feels hand-made, not generated. After that comes a short usability test with five people and validating the personas, which are still assumptions.
 takeaway: Luxury comes through restraint, not darkness.
 ---
 
