@@ -1,5 +1,6 @@
 ---
 order: 5
+hidden: true
 visual: ages
 cardMeta: HCI research · Royal Holloway · 2023 – 24
 cardTitle: One task, three very different people

@@ -83,6 +83,8 @@ export interface CaseStudy {
   slug: string;
   order: number;
   featured?: boolean;
+  /** Left out of the site but kept so it can come back. */
+  hidden?: boolean;
   visual: Visual;
   cardMeta: string;
   cardTitle: string;
@@ -122,4 +124,5 @@ export const caseStudies: CaseStudy[] = Object.entries(caseFiles)
     slug: path.replace(/^.*\/\d+-/, "").replace(/\.md$/, ""),
     html: file.html,
   }))
+  .filter((c) => !c.hidden)
   .sort((a, b) => a.order - b.order);
