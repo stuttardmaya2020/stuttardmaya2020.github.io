@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { CaseVisual } from "../art/CaseVisual";
 import { Arrow } from "../components/Arrow";
-import { CaseSection, Decisions, ResearchBar, Stats } from "../components/CaseParts";
+import { CaseSection, Decisions, Gallery, ResearchBar, Stats } from "../components/CaseParts";
 import { Script } from "../components/Script";
 import { caseStudies, site, type CaseStudy } from "../lib/content";
 import { inView, rise, useEntrance } from "../lib/motion";
@@ -41,9 +41,13 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
         </dl>
 
         <motion.figure className={`case-visual case-visual--${study.visual}`} variants={rise} initial={initial} whileInView="shown" viewport={inView}>
-          <div className="case-visual-stage">
-            <CaseVisual visual={study.visual} />
-          </div>
+          {study.shot ? (
+            <img className="case-shot" src={`/images/${study.shot.src}.jpg`} width={study.shot.size[0]} height={study.shot.size[1]} alt={study.shot.alt} />
+          ) : (
+            <div className="case-visual-stage">
+              <CaseVisual visual={study.visual} />
+            </div>
+          )}
           <figcaption>{study.visualCaption}</figcaption>
         </motion.figure>
 
@@ -54,7 +58,12 @@ export function CaseStudyPage({ study }: { study: CaseStudy }) {
         <CaseSection n={2} title="Key decisions">
           <Decisions decisions={study.decisions} />
         </CaseSection>
-        <CaseSection n={3} title={study.impactTitle ?? "Impact"}>
+        {study.gallery && (
+          <CaseSection n={3} title={study.gallery.title}>
+            <Gallery gallery={study.gallery} />
+          </CaseSection>
+        )}
+        <CaseSection n={study.gallery ? 4 : 3} title={study.impactTitle ?? "Impact"}>
           <Stats stats={study.stats} />
           <p>{study.impact}</p>
         </CaseSection>

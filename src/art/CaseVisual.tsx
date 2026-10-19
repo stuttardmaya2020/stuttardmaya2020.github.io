@@ -92,11 +92,12 @@ function Summary() {
   );
 }
 
-const VISUALS: Record<Visual, () => JSX.Element> = { notification: Notification, loop: Loop, paths: Paths, ages: Ages, summary: Summary };
+const VISUALS: Partial<Record<Visual, () => JSX.Element>> = { notification: Notification, loop: Loop, paths: Paths, ages: Ages, summary: Summary };
 
 /** Illustrative stand-in for a case study's screens, which stay with the client. Decorative. */
 export function CaseVisual({ visual }: { visual: Visual }) {
   const Drawing = VISUALS[visual];
+  if (!Drawing) return null;
   return (
     <div className={`viz viz--${visual}`} aria-hidden="true">
       <Drawing />

@@ -71,7 +71,19 @@ export interface Independent {
   script: string;
   sub: string;
   visit: string;
-  projects: { name: string; kind: string; line: string; status: string; image: string; alt: string; href?: string }[];
+  projects: {
+    name: string;
+    kind: string;
+    line: string;
+    status: string;
+    image: string;
+    alt: string;
+    href?: string;
+    caseSlug?: string;
+    before?: { image: string; alt: string };
+  }[];
+  beforeLabel: string;
+  caseLink: string;
 }
 
 export interface Contact {
@@ -81,7 +93,14 @@ export interface Contact {
   email: string;
 }
 
-export type Visual = "notification" | "loop" | "paths" | "ages" | "summary";
+export type Visual = "notification" | "loop" | "paths" | "ages" | "summary" | "shot";
+
+export interface Shot {
+  src: string;
+  alt: string;
+  size: [number, number];
+  caption?: string;
+}
 
 export interface Stat {
   value: string;
@@ -94,6 +113,11 @@ export interface CaseStudy {
   featured?: boolean;
   /** Left out of the site but kept so it can come back. */
   hidden?: boolean;
+  /** Linked from Independent work rather than listed in Selected work. */
+  independent?: boolean;
+  /** A real screen in place of the drawn visual. */
+  shot?: Shot;
+  gallery?: { title: string; intro?: string; items: Shot[] };
   visual: Visual;
   cardMeta: string;
   cardTitle: string;
@@ -128,7 +152,8 @@ const caseFiles = import.meta.glob<{ data: Record<string, unknown>; html: string
   { eager: true, import: "default" },
 );
 
-export const caseStudies: CaseStudy[] = Object.entries(caseFiles)
+/** Every case study with a page, including ones linked from Independent work. */
+export const allCaseStudies: CaseStudy[] = Object.entries(caseFiles)
   .map(([path, file]) => ({
     ...(file.data as unknown as Omit<CaseStudy, "slug" | "html">),
     slug: path.replace(/^.*\/\d+-/, "").replace(/\.md$/, ""),
@@ -136,3 +161,6 @@ export const caseStudies: CaseStudy[] = Object.entries(caseFiles)
   }))
   .filter((c) => !c.hidden)
   .sort((a, b) => a.order - b.order);
+
+/** The ones listed in Selected work. */
+export const caseStudies = allCaseStudies.filter((c) => !c.independent);
