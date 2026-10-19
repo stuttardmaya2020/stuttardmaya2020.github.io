@@ -27,7 +27,7 @@ stats:
   - { value: "4", label: patient records in one summary }
   - { value: "~1", label: month from brief to presented prototype }
 impactTitle: Outcome
-impact: Design leadership presented the prototype to the most senior audience the work could reach. I don't know what happened after that, so I won't claim anything. What I do know is that they could have asked any designer to build it, and they asked me.
+impact: Design leadership presented the prototype as part of their response to that request. I don't know what happened after that, so I won't claim anything. What I do know is that they could have asked any designer to build it, and they asked me.
 takeaway: In a clinical setting, an AI summary is only as useful as a clinician's ability to check where it came from.
 ---
 
