@@ -72,7 +72,7 @@ export interface Contact {
   email: string;
 }
 
-export type Visual = "notification" | "loop" | "paths" | "ages";
+export type Visual = "notification" | "loop" | "paths" | "ages" | "summary";
 
 export interface Stat {
   value: string;

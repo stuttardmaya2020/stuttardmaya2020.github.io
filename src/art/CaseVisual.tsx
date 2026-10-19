@@ -72,7 +72,27 @@ function Ages() {
   );
 }
 
-const VISUALS: Record<Visual, () => JSX.Element> = { notification: Notification, loop: Loop, paths: Paths, ages: Ages };
+const SOURCES = ["GP record", "Hospital", "Shared care", "Maternity notes"];
+
+/** An AI summary that names the records it was drawn from. Made-up data. */
+function Summary() {
+  return (
+    <div className="viz-notes">
+      <div className="viz-note viz-note--after">
+        <span className="viz-kicker">AI summary · 18-week check-up</span>
+        <strong>Low risk. Last measurements within range.</strong>
+        <span>On antibiotics for a viral infection. No known risk to the pregnancy.</span>
+        <span className="viz-sources">
+          {SOURCES.map((s) => (
+            <span key={s} className="viz-tag">{s}</span>
+          ))}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+const VISUALS: Record<Visual, () => JSX.Element> = { notification: Notification, loop: Loop, paths: Paths, ages: Ages, summary: Summary };
 
 /** Illustrative stand-in for a case study's screens, which stay with the client. Decorative. */
 export function CaseVisual({ visual }: { visual: Visual }) {

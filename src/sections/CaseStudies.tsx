@@ -3,9 +3,10 @@ import { WorkCard } from "../components/WorkCard";
 import { caseStudies, work } from "../lib/content";
 import "../styles/work.css";
 
-/** Featured project full width, the two client projects side by side, research last and wide. */
+/** Featured project full width, client projects in pairs, research last and wide. An unpaired card goes wide too. */
 function layoutFor(index: number, total: number) {
-  return index === 0 || index === total - 1 ? "wide" : "half";
+  const unpaired = (total - 2) % 2 === 1 && index === total - 2;
+  return index === 0 || index === total - 1 || unpaired ? "wide" : "half";
 }
 
 export function CaseStudies() {
