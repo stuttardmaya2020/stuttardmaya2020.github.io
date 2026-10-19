@@ -5,6 +5,7 @@ import processMd from "../content/process.md";
 import aboutMd from "../content/about.md";
 import artMd from "../content/art.md";
 import contactMd from "../content/contact.md";
+import independentMd from "../content/independent.md";
 
 export interface Link {
   label: string;
@@ -65,6 +66,14 @@ export interface Art {
   paintings: { src: string; size: [number, number]; title: string; medium: string; alt: string }[];
 }
 
+export interface Independent {
+  title: string;
+  script: string;
+  sub: string;
+  status: string;
+  projects: { name: string; kind: string; line: string; image: string; alt: string }[];
+}
+
 export interface Contact {
   heading: string;
   script: string;
@@ -112,6 +121,7 @@ export const howIWork = processMd.data as unknown as Process;
 export const about = aboutMd.data as unknown as About;
 export const art = artMd.data as unknown as Art;
 export const contact = contactMd.data as unknown as Contact;
+export const independent = independentMd.data as unknown as Independent;
 
 const caseFiles = import.meta.glob<{ data: Record<string, unknown>; html: string }>(
   "../content/case-studies/*.md",
