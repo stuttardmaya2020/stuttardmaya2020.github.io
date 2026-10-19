@@ -6,7 +6,7 @@ cardTitle: An AI librarian for clinical staff
 cardLine: Clinicians ask out loud or in text, the AI fetches from four records, and every answer links back to its source.
 eyebrow: Case study · Client work at Accenture · October 2025
 title: An AI librarian for clinical staff
-summary: Before an appointment, staff have to piece a patient's story together from the GP record, hospital notes, the shared care record and maternity notes. Design leadership asked me to prototype an AI assistant that does the fetching, so they could present it in response to a ministerial request. I had about a month.
+summary: Before an appointment, staff have to piece a patient's story together from the GP record, hospital notes, the shared care record and maternity notes. Design leadership asked me to prototype an AI assistant that does the fetching, so they could present it in response to a high-profile request from the very top. I had about a month.
 overview:
   - { label: My role, value: "Interaction Designer. I designed the experience and built the prototype." }
   - { label: Team, value: "Me and a content designer, briefed by the head of user-centred design." }
@@ -27,7 +27,7 @@ stats:
   - { value: "4", label: patient records in one summary }
   - { value: "~1", label: month from brief to presented prototype }
 impactTitle: Outcome
-impact: Design leadership presented the prototype as part of their response to a ministerial request. I don't know what happened after that, so I won't claim anything. What I do know is that they could have asked any designer to build it, and they asked me.
+impact: Design leadership presented the prototype to the most senior audience the work could reach. I don't know what happened after that, so I won't claim anything. What I do know is that they could have asked any designer to build it, and they asked me.
 takeaway: In a clinical setting, an AI summary is only as useful as a clinician's ability to check where it came from.
 ---
 
