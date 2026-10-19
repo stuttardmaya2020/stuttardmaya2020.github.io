@@ -8,11 +8,12 @@ caseLink: See the process
 projects:
   - name: Christina Stuttard Fitness
     kind: Personal trainer · Spain and Zoom
-    line: My mum's personal training site was looking dated. I'm rebuilding it around her yellow and grey, her own words and her photos. It shows class times in each visitor's time zone, and every route ends in a message to her.
-    status: Design in progress
+    line: My mum's personal training site was from 2014. I'm rebuilding it around her lemon yellow, her own words and her photos. It shows class times in each visitor's time zone, and every route ends in a message to her.
+    status: Built, not live yet
+    caseSlug: christina-stuttard-fitness
     before:
       image: csf-before
-      alt: Christina's current website, with a large CSF logo on a dark banner, a grey nav bar, phone numbers in big text, and photos in heavy black frames on a grey background.
+      alt: Christina's old website, with a large CSF logo on a dark banner, a grey nav bar, blurred phone numbers, and photos in heavy black frames on a grey background.
     image: work-christina-stuttard-fitness
     alt: The Christina Stuttard Fitness homepage. A large headline reads "Workouts designed for you" over a photo of Christina holding a plank on a beach boardwalk, with a yellow "See how we can work together" button.
   - name: Timex Carriages
