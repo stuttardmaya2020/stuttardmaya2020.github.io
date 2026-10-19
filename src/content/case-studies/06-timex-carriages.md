@@ -8,24 +8,27 @@ shot:
   size: [1200, 750]
 cardMeta: Independent work · 2026
 cardTitle: A chauffeur site as calm as the ride
-cardLine: Three visual directions, two rejected, and one action on every screen.
+cardLine: Five rounds of feedback in two days, three directions, and one action on every screen.
 eyebrow: Case study · Independent work · Timex Carriages · 2026
 title: A chauffeur site as calm as the ride
-summary: Timex Carriages is an executive chauffeur service in London, and its website looked years older than its cars. I redesigned and rebuilt it with the owner, from personas and moodboards to a live site.
+summary: Timex Carriages is an executive chauffeur service in London, and its website looked years older than its cars. I redesigned and rebuilt it in a week, from a competitor audit and moodboards to a live site the owner signed off.
 overview:
-  - { label: My role, value: "Everything: research, visual design, wireframes and the build." }
-  - { label: Client, value: "The owner of Timex Carriages, who reviewed each direction." }
-  - { label: Timeline, value: 2026. Live and still evolving. }
-  - { label: Tools, value: "Figma, then HTML, CSS and JavaScript built with AI, hosted on GitHub Pages." }
+  - { label: My role, value: "Product designer and creative engineer, solo. Research, visual design, wireframes and the build." }
+  - { label: Reviewers, value: "The owner, and a family member who knows the business well." }
+  - { label: Timeline, value: "2 to 6 October 2026. Live and still evolving." }
+  - { label: Tools, value: "Figma, then HTML, CSS and JavaScript built with AI, hosted free on GitHub Pages." }
 visualCaption: The live site at timexcarriageslondon.com.
 decisions:
+  - title: Ship fast, then listen
+    body: I built a working first version in a day so people could react to something real, not a mockup. Then came five rounds of feedback over two days, each one turning a feeling like "too aggressive" or "too white" into a specific change.
+    chips: [Too dark, Too white, Too crowded, Don't pre-fill the email]
   - title: Three directions, two rejected
-    body: The owner turned down the first direction, a dramatic night look, as too dark and aggressive. I turned down the second myself because it was too white and felt bland next to the cars. The third keeps a light, readable base and gets its weight from black cars and charcoal.
+    body: The first, a dark night look with brass and Bodoni, was called too aggressive and hard to read. The second swung to white and felt bland next to the cars. The third, warm sand and black, keeps a calm, readable base and gets its weight from the cars.
     chips: [v1 Night, v2 Daylight, v3 Warm sand and black]
+  - title: Take the clever bits out
+    body: Version one had a live clock, a moving banner, an example journey and a filterable fleet. None of them helped anyone book a car, so they all went. What's left is short copy and the real cars, all black and facing the same way, with one line for everything else, "Not seeing the car you want? Ask us."
   - title: One action, always in reach
-    body: The riskiest step in the journey is writing the enquiry email from scratch. So the site has one action, Enquire, and the header stays at the top of every screen on a phone so it's always one tap away.
-  - title: Show the actual cars
-    body: Someone booking a chauffeur wants to see the car before they book it. The fleet lists every model with a real photo, so nobody has to wonder what will turn up.
+    body: Writing the email is where people drop off. So there's one action, Enquire, in a sticky header on every screen. It opens a plain email with nothing pre-filled, a change that came from testing on a real phone. A WhatsApp number sits next to it for people who'd rather message.
 gallery:
   title: The process
   intro: Real artefacts from the project. Select any of them to see it full size.
@@ -36,12 +39,12 @@ gallery:
       caption: Proto-personas. Based on assumptions for now, to validate with the owner and people who book chauffeurs.
     - src: timex-v1-night
       size: [1600, 2165]
-      alt: Moodboard v1 Night, with night-time London photos, a near-black, graphite and gold palette, and Playfair Display headings. Marked as rejected by the owner as too dark and aggressive.
-      caption: Direction 1, Night. Rejected by the owner. Lesson, luxury through restraint, not darkness.
+      alt: Moodboard v1 Night, with night-time London photos, a near-black, graphite and gold palette, and Playfair Display headings. Marked as rejected as too dark and aggressive.
+      caption: Direction 1, Night. Rejected as too dark and aggressive. Lesson, luxury through restraint, not darkness.
     - src: timex-v2-daylight
       size: [1600, 2130]
-      alt: Moodboard v2 Daylight, with bright daytime photos, a white, sand and navy palette, and Jost headings. Marked as rejected by Maya as too white.
-      caption: Direction 2, Daylight. Rejected by me. Lesson, light, but with warmth and weight.
+      alt: Moodboard v2 Daylight, with bright daytime photos, a white, sand and navy palette, and Jost headings. Marked as rejected as too white.
+      caption: Direction 2, Daylight. Too white, and the cars needed to be black. Lesson, light, but with warmth and weight.
     - src: timex-v3-warm
       size: [1600, 2130]
       alt: Moodboard v3 Warm sand and black, with black cars, tan leather and London stone, a warm sand, stone, charcoal and muted gold palette, and Marcellus headings. Marked as the current direction.
@@ -53,21 +56,24 @@ gallery:
     - src: timex-wireframes
       size: [1600, 1131]
       alt: Three low-fidelity phone wireframes for the first screen, the fleet and the contact section, each with a header that keeps Enquire visible.
-      caption: Phone wireframes. Grey boxes only, with Enquire visible on every screen.
+      caption: Phone wireframes, updated after round five. Grey boxes only, with Enquire visible on every screen.
     - src: timex-live
       size: [1200, 2629]
       alt: The full redesigned Timex Carriages homepage, with the hero, three values, an about section, services, the fleet with car photos, and a dark enquiry section at the bottom.
       caption: The live homepage, top to bottom.
 stats:
+  - { value: "5", label: rounds of feedback in two days }
   - { value: "3", label: visual directions explored }
   - { value: "1", label: action on every screen }
 impactTitle: Outcome
-impact: The new site is live at timexcarriageslondon.com and still evolving. The personas are still assumptions, so the next step is testing them with the owner and a few people who book chauffeurs.
+impact: The new site replaced the old one on the business's own domain, at no cost. The owner signed it off on 6 October and liked that it's simple and straight to the point. Next up is a short usability test with five people, and validating the personas, which are still assumptions.
 takeaway: Luxury comes through restraint, not darkness.
 ---
 
-A first-time visitor lands from Google, glances at the page and decides in seconds whether to trust it. The old site looked dated, and that was the first thing they saw.
+A first-time visitor lands from Google, glances at the page and decides in seconds whether to trust it. The old site was made in a card-based site builder, with rigid grids and no way to change the code. It looked dated, and that was the first thing people saw.
 
-The owner wanted a site that looked as professional as the service. That meant finding the right look, and then making sure nothing stood between a visitor and an enquiry.
+The owner wanted something simple: a quick, credible description of the service and an easy way to get in touch. No budget, no backend.
+
+So I looked at the competition first. Addison Lee, London Elite Chauffeurs and iChauffeur are all dark, glossy and built around booking forms. That gave Timex room to be premium but calmer, more personal and simpler.
 
 > The question: what makes a stranger trust a chauffeur company enough to get in touch?
