@@ -12,7 +12,7 @@ eyebrow: Case study · Client work at Accenture · 2025 – July 2026
 title: Making appointment types impossible to misread
 summary: People were turning up despite their notifications, not because of them. I designed a national standard that says exactly what kind of appointment someone has, and what to do about it.
 overview:
-  - { label: My role, value: "Senior Interaction Designer. I owned the interaction design, research synthesis and design assurance through to sign-off." }
+  - { label: My role, value: "Senior Interaction Designer. I owned the interaction design and design assurance through to sign-off, and worked with our user researcher on synthesis." }
   - { label: Team, value: "Product manager, user researcher, engineers, safety and governance leads." }
   - { label: Timeline, value: 2025 to July 2026. Shipped. }
   - { label: Tools, value: "Figma, plus coded prototypes in HTML, CSS and JavaScript, built with GitHub Copilot." }
@@ -34,7 +34,7 @@ decisions:
     body: We tried several richer designs. One explicit line, "You do not need to travel", tested better than all of them. The highest-impact fix was the least glamorous.
 stats:
   - { value: "500+", label: organisations reached by the standard }
-  - { value: "4+", label: features through safety sign-off }
+  - { value: "3", label: features through safety sign-off }
   - { value: Jul 26, label: "shipped, now being adopted nationally" }
 impact: I took the work through design assurance and safety sign-off, from risk workshops to governance boards. Because it's a shared standard, every organisation that adopts it inherits the research, not just the screens.
 takeaway: A system that's honest about its limits builds more trust than one that fakes a consistency it can't deliver.
