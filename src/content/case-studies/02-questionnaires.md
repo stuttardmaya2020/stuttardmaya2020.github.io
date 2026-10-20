@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 4
 visual: loop
 cardMeta: Client work · 2025 – 26
 cardTitle: Letting people answer out of order
@@ -29,6 +29,6 @@ takeaway: Best practice isn't universal. The right pattern depends on who's usin
 
 Mandatory questions, "to do" badges and bright urgency tags read as neutral in most products. Here they caused anxiety. Strict step order broke people's existing habits, and some gave up altogether.
 
-I tested with 69+ people across unmoderated content tests, one-to-one usability sessions (including neurodivergent participants and people with sensory impairments) and quantitative validation.
+We tested with 69+ people across unmoderated content tests, one-to-one usability sessions (including neurodivergent participants and people with sensory impairments) and quantitative validation.
 
 > The insight: 8 of 9 participants needed to revisit answers as their feelings shifted. Linear validation was stopping them.

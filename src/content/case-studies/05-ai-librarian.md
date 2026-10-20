@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 2
 visual: summary
 cardMeta: Client work · Oct 2025
 cardTitle: An AI librarian for clinical staff
